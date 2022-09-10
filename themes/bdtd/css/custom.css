@@ -41,17 +41,17 @@ body {
 
 .btn-search-primary {
   color: #33426a;
-  background-color: #f8c300;
+  background-color: #00bcd4;
   border-color: #eee;
 }
 
 .facet-group .title {
-  background-color: #76B865;
+  background-color: #00bcd4;
   color: #fff;
 }
 
 header.hidden-print {
-  background-color: #f8c300;
+  background-color: #00bcd4;
 }
 
 .navbar-brand {
@@ -146,13 +146,13 @@ header.hidden-print {
 }
 
 .btn-primary {
-  background-color: #76B865 !important;
+  background-color: #00bcd4 !important;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
   color: #fff;
-  background-color: #76B865;
+  background-color: #00bcd4;
   border-color: #eee;
 }
 
@@ -790,13 +790,13 @@ td span.format {
 .pagination>.active>span:hover, 
 .pagination>.active>a:focus, 
 .pagination>.active>span:focus {
-  background-color: #76B865;
-  border-color: #76B865;
+  background-color: #00bcd4;
+  border-color: #00bcd4;
 }
 
 .slider-container .slider-handle {
-  background: #76B865 !important;
-  border: 1px solid #76B865 !important;
+  background: #00bcd4 !important;
+  border: 1px solid #00bcd4 !important;
 }
 
 .filters-title{
