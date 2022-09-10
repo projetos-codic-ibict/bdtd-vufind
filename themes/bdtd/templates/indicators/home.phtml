@@ -1,0 +1,21 @@
+<?php $this->headTitle($this->translate('Indicators')); ?>
+<?php $this->headLink()->appendStylesheet('loader.css'); ?>
+<?php $this->layout()->searchbox = false; ?>
+<?php $this->layout()->nocontainerclass = true; ?>
+
+
+<div class="logo-img-center">
+  <a href="<?= $this->url('home') ?>"><img src="<?= $this->imageLink('oasisbr.png'); ?>" alt="Logo do OasisBR" /></a>
+</div>
+
+
+<div class="page-title-bar">
+  <div class="container">
+    <h1><?= $this->transEsc("Indicators") ?></h1>
+    <h4><?= $this->transEsc("Indicators Subtitle") ?><h4>
+  </div>
+</div>
+
+<div class="container">
+  <embed type="text/html" src="https://indicadores-oasisbr.ibict.br/Indicadores-oasisbr" style="width:100%;height:3700px;">
+</div>

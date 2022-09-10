@@ -1,0 +1,580 @@
+<?php $this->headTitle($this->translate('About')); ?>
+<?php $this->layout()->searchbox = false; ?>
+
+<div class="logo-img-center">
+  <a href="<?= $this->url('home') ?>"><img class="img-responsive" src="<?= $this->imageLink('oasisbr.png'); ?>" alt="Logo do OasisBR" /></a>
+</div>
+<div class="about">
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <h2> <?= $this->transEsc('about title'); ?> </h2>
+        <p>
+          <?= $this->transEsc('about p1'); ?>
+        </p>
+        <p>
+          <?= $this->transEsc('about p2'); ?>
+        </p>
+        <p>
+          <?= $this->transEsc('about p3'); ?>
+          <a target="_blank" href="https://www.rcaap.pt"> <?= $this->transEsc('about link rcaap'); ?></a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row objectives">
+    <div class="col-md-12">
+      <div class="card">
+        <h2> <a data-toggle="collapse" class="btn-collapse" href="#objetivos" aria-expanded="true" aria-controls="footwear">
+            <?= $this->transEsc('Goals'); ?>
+          </a>
+        </h2>
+        <div class="collapse in" id="objetivos">
+          <ul>
+            <li>
+              <?= $this->transEsc('goal 1'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('goal 2'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('goal 3'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('goal 4'); ?></li>
+            <li>
+              <?= $this->transEsc('goal 5'); ?></li>
+            <li>
+              <?= $this->transEsc('goal 6'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('goal 7'); ?>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 network-flow" id="network-flow">
+      <div class="card">
+        <h2> <a data-toggle="collapse" class="btn-collapse" href="#fluxo" aria-expanded="true" aria-controls="footwear">
+            <?= $this->transEsc('Oasisbr information flow'); ?>
+          </a>
+        </h2>
+        <div class="collapse in" id="fluxo">
+          <p> <?= $this->transEsc('flow p1'); ?></p>
+          <p>
+            <?= $this->transEsc('flow p2'); ?>
+            <a target="_blank" href="https://www.rcaap.pt"> <?= $this->transEsc('about link rcaap'); ?></a>
+            <?= $this->transEsc('flow p3'); ?>
+            <a target="_blank" href="https://www.lareferencia.info/pt"> <?= $this->transEsc('La Referencia'); ?></a>
+            <?= $this->transEsc('flow p4'); ?>
+            <a target="_blank" href="https://www.openaire.eu/">OpenAIRE</a>
+            .
+          </p>
+          <p> <?= $this->transEsc('flow p5'); ?></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row ">
+    <div class="col-md-12">
+      <div class="card">
+        <h2> <?= $this->transEsc('Criteria for collecting information sources'); ?></h2>
+        <h3> <a data-toggle="collapse" class="btn-collapse collapsed" href="#monographs" aria-expanded="false" aria-controls="footwear">
+            <?= $this->transEsc('Digital libraries of monographs'); ?></a>
+        </h3>
+        <div class="collapse" id="monographs">
+          <ul>
+            <li>
+              <?= $this->transEsc('dlm p1'); ?>
+              <a href="https://www.openarchives.org/pmh" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('dlm  OAI link'); ?>
+              </a>
+              <?= $this->transEsc('dlm p2'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p3'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p4'); ?>
+              <a href="https://dublincore.org" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('Dublin Core'); ?>
+              </a>
+              <?= $this->transEsc('dlm p5'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p6'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p7'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p8'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p9'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p10'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p11'); ?>
+              <a href="/vufind/MODELO-DE-OFICIO.docx" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('dlm modelo'); ?></a>;
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p12'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p13'); ?>
+            </li>
+          </ul>
+        </div>
+
+        <h3> <a data-toggle="collapse" class="btn-collapse collapsed" href="#theses" aria-expanded="false" aria-controls="footwear">
+            <?= $this->transEsc('Digital libraries of electronic theses and dissertations'); ?></a>
+        </h3>
+        <div class="collapse" id="theses">
+          <ul>
+            <li>
+              <?= $this->transEsc('dlm p1'); ?>
+              <a href="https://www.openarchives.org/pmh" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('dlm  OAI link'); ?>
+              </a>
+              <?= $this->transEsc('dlm p2'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dtd p0'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p4'); ?>
+              <a href="https://dublincore.org" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('Dublin Core'); ?>
+              </a>
+              <?= $this->transEsc('dlm p5'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p6'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p7'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p8'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p9'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p10'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p11'); ?>
+              <a href="/vufind/MODELO-DE-OFICIO.docx" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('dlm modelo'); ?></a>;
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p12'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dtd p1'); ?>
+              <a href="https://bdtd.ibict.br" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('BDTD'); ?>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <h3> <a data-toggle="collapse" class="btn-collapse collapsed" href="#events" aria-expanded="false" aria-controls="footwear">
+            <?= $this->transEsc('Scientific conferences (Events)'); ?></a>
+        </h3>
+        <div class="collapse" id="events">
+          <ul>
+            <li>
+              <?= $this->transEsc('dlm p1'); ?>
+              <a href="https://www.openarchives.org/pmh" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('dlm  OAI link'); ?>
+              </a>
+              <?= $this->transEsc('dlm p2'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('sc p0'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p4'); ?>
+              <a href="https://dublincore.org" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('Dublin Core'); ?>
+              </a>
+              <?= $this->transEsc('dlm p5'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p6'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p7'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p8'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p9'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p10'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p11'); ?>
+              <a href="/vufind/MODELO-DE-OFICIO.docx" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('dlm modelo'); ?></a>;
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p12'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('sc p1'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('sc p2'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('sc p3'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('sc p4'); ?>
+            </li>
+          </ul>
+        </div>
+
+
+        <h3> <a data-toggle="collapse" class="btn-collapse collapsed" href="#portals" aria-expanded="false" aria-controls="footwear">
+            <?= $this->transEsc('Aggregator portals'); ?></a>
+        </h3>
+        <div class="collapse" id="portals">
+          <ul>
+            <li>
+              <?= $this->transEsc('dlm p1'); ?>
+              <a href="https://www.openarchives.org/pmh" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('dlm  OAI link'); ?>
+              </a>
+              <?= $this->transEsc('dlm p2'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('ap p0'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p4'); ?>
+              <a href="https://dublincore.org" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('Dublin Core'); ?>
+              </a>,
+              <a href="https://datacite.org" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('DataCite'); ?>
+              </a>
+              <?= $this->transEsc('dlm p5'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p6'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('ap p1'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p8'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p9'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p10'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p11'); ?>
+              <a href="/vufind/MODELO-DE-OFICIO.docx" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('dlm modelo'); ?></a>;
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p12'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p13'); ?>
+            </li>
+          </ul>
+        </div>
+
+
+        <h3> <a data-toggle="collapse" class="btn-collapse collapsed" href="#book" aria-expanded="false" aria-controls="footwear">
+            <?= $this->transEsc('Book portals'); ?></a>
+        </h3>
+        <div class="collapse" id="book">
+          <ul>
+            <li>
+              <?= $this->transEsc('dlm p1'); ?>
+              <a href="https://www.openarchives.org/pmh" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('dlm  OAI link'); ?>
+              </a>
+              <?= $this->transEsc('dlm p2'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('ap p0'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p4'); ?>
+              <a href="https://dublincore.org" target="_blank" rel="noopener noreferrer">
+                Dublin Core
+              </a>
+              <?= $this->transEsc('dlm p5'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p6'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p7'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p8'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p9'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p10'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p11'); ?>
+              <a href="/vufind/MODELO-DE-OFICIO.docx" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('dlm modelo'); ?></a>;
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p12'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p13'); ?>
+            </li>
+          </ul>
+        </div>
+
+        <h3> <a data-toggle="collapse" class="btn-collapse collapsed" href="#repositories" aria-expanded="false" aria-controls="footwear">
+            <?= $this->transEsc('Research data repositories'); ?></a>
+        </h3>
+        <div class="collapse" id="repositories">
+          <ul>
+            <li>
+              <?= $this->transEsc('dlm p1'); ?>
+              <a href="https://www.openarchives.org/pmh" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('dlm  OAI link'); ?>
+              </a>
+              <?= $this->transEsc('dlm p2'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('rr p0'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('rr p1'); ?>
+              <a href="https://datacite.org" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('DataCite'); ?>
+              </a>
+              <?= $this->transEsc('rr p2'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('rr p3'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('rr p4'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p8'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p9'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p10'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p11'); ?>
+              <a href="/vufind/MODELO-DE-OFICIO.docx" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('dlm modelo'); ?></a>;
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p12'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('rr p5'); ?>
+            </li>
+          </ul>
+        </div>
+
+
+        <h3> <a data-toggle="collapse" class="btn-collapse collapsed" href="#literature" aria-expanded="false" aria-controls="footwear">
+            <?= $this->transEsc('Literature repositories'); ?></a>
+        </h3>
+        <div class="collapse" id="literature">
+          <ul>
+            <li>
+              <?= $this->transEsc('dlm p1'); ?>
+              <a href="https://www.openarchives.org/pmh" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('dlm  OAI link'); ?>
+              </a>
+              <?= $this->transEsc('dlm p2'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('lr p0'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p4'); ?>
+              <a href="https://dublincore.org" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('Dublin Core'); ?>
+              </a>
+              <?= $this->transEsc('dlm p5'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p6'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p7'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p8'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p9'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p10'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p11'); ?>
+              <a href="/vufind/MODELO-DE-OFICIO.docx" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('dlm modelo'); ?></a>;
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p12'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p13'); ?>
+            </li>
+          </ul>
+        </div>
+
+        <h3> <a data-toggle="collapse" class="btn-collapse collapsed" href="#journals" aria-expanded="false" aria-controls="footwear">
+            <?= $this->transEsc('Scientific journals'); ?></a>
+        </h3>
+        <div class="collapse" id="journals">
+          <ul>
+            <li>
+              <?= $this->transEsc('dlm p1'); ?>
+              <a href="https://www.openarchives.org/pmh" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('dlm  OAI link'); ?>
+              </a>
+              <?= $this->transEsc('dlm p2'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('sc p0'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p4'); ?>
+              <a href="https://dublincore.org" target="_blank" rel="noopener noreferrer">
+                Dublin Core
+              </a>
+              <?= $this->transEsc('dlm p5'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p6'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p7'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p8'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p9'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p10'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('sj p1'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('sj p2'); ?>
+              <a href="https://diadorim.ibict.br" target="_blank" rel="noopener noreferrer">
+                Diadorim
+              </a>
+            </li>
+            <li>
+              <?= $this->transEsc('sj p3'); ?>
+              <a href="https://www.latindex.org/latindex/inicio" target="_blank" rel="noopener noreferrer">Latindex (Catalog 2.0)</a>,
+              <a href="https://www.scielo.br/" target="_blank" rel="noopener noreferrer">SciELO Brazil</a>,
+              <a href="https://www.redalyc.org/" target="_blank" rel="noopener noreferrer">Redalyc</a>,
+              <a href="https://www.redib.org/" target="_blank" rel="noopener noreferrer">Redib</a>,
+              <a href="https://doaj.org/" target="_blank" rel="noopener noreferrer">DOAJ</a>.
+            </li>
+          </ul>
+        </div>
+
+        <h3> <a data-toggle="collapse" class="btn-collapse collapsed" href="#preprint" aria-expanded="false" aria-controls="footwear">
+            <?= $this->transEsc('Preprint servers'); ?></a>
+        </h3>
+        <div class="collapse" id="preprint">
+          <ul>
+            <li>
+              <?= $this->transEsc('dlm p1'); ?>
+              <a href="https://www.openarchives.org/pmh" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('dlm  OAI link'); ?>
+              </a>
+              <?= $this->transEsc('dlm p2'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('lr p0'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p4'); ?>
+              <a href="https://dublincore.org" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('Dublin Core'); ?>
+              </a>
+              <?= $this->transEsc('dlm p5'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p6'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p7'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p8'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p9'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p10'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p11'); ?>
+              <a href="/vufind/MODELO-DE-OFICIO.docx" target="_blank" rel="noopener noreferrer">
+                <?= $this->transEsc('dlm modelo'); ?></a>;
+            </li>
+            <li>
+              <?= $this->transEsc('dlm p12'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('ps p1'); ?>
+            </li>
+            <li>
+              <?= $this->transEsc('ps p2'); ?>
+            </li>
+          </ul>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
