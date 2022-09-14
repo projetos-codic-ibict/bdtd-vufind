@@ -8,28 +8,8 @@ class RecordDataFormatterFactory extends \VuFind\View\Helper\Root\RecordDataForm
 {
     public function getDefaultCoreSpecs()
     {
-
+        //$spec = new RecordDataFormatter\SpecBuilder();
         $spec = new SpecBuilder();
-
-        $spec->setTemplateLine(
-            'Main Authors',
-            'getDeduplicatedAuthors',
-            'data-authors.phtml',
-            [
-                'useCache' => true,
-                'labelFunction' => function ($data) {
-                    return count($data['primary']) > 1
-                        ? 'Main Authors' : 'Main Author';
-                },
-                'context' => [
-                    'type' => 'primary',
-                    'schemaLabel' => 'author',
-                    'requiredDataFields' => [
-                        ['name' => 'profile', 'prefix' => '']
-                    ]
-                ]
-            ]
-        );
 
         $spec->setTemplateLine(
             'Published in',
@@ -48,13 +28,6 @@ class RecordDataFormatterFactory extends \VuFind\View\Helper\Root\RecordDataForm
             'getAccessLevel'
         );
 
-
-        $spec->setTemplateLine(
-            'Access Level',
-            'getAccessLevel',
-            'access-level.phtml'
-        );
-
         $spec->setLine(
             'Previous Title',
             'getPreviousTitles',
@@ -63,11 +36,30 @@ class RecordDataFormatterFactory extends \VuFind\View\Helper\Root\RecordDataForm
         );
 
         $spec->setLine(
-            'Publication Date',
+            //'Publication Date', 'getPublicationDates');
+            'Defense year',
             'getPublicationDates'
         );
 
-
+        $spec->setTemplateLine(
+            'Authors',
+            'getDeduplicatedAuthors',
+            'data-authors.phtml',
+            [
+                'useCache' => true,
+                'labelFunction' => function ($data) {
+                    return count($data['primary']) > 1
+                        ? 'Main Authors' : 'Main Author';
+                },
+                'context' => [
+                    'type' => 'primary',
+                    'schemaLabel' => 'author',
+                    'requiredDataFields' => [
+                        ['name' => 'profile', 'prefix' => '']
+                    ]
+                ]
+            ]
+        );
 
         $spec->setTemplateLine(
             'Corporate Authors',
@@ -170,17 +162,11 @@ class RecordDataFormatterFactory extends \VuFind\View\Helper\Root\RecordDataForm
         );
         $spec->setLine('Language', 'getLanguages');
 
-
         $spec->setTemplateLine(
-            'Defense institution',
+            //'Published', 'getRootPublishers', 'data-publicationDetails.phtml'
+            'Institution',
             'getRootPublishers',
             'data-publicationDetails.phtml'
-        );
-
-        $spec->setTemplateLine(
-            'Source',
-            'getSource',
-            'link-source.phtml'
         );
 
         $spec->setTemplateLine(
@@ -194,6 +180,37 @@ class RecordDataFormatterFactory extends \VuFind\View\Helper\Root\RecordDataForm
             'getDepartmentPublishers',
             'data-publicationDetails.phtml'
         );
+
+        // $spec->setTemplateLine(
+        // 'Área de conhecimento', 'getKnowledgeareaPublishers', 'data-publicationDetails.phtml'
+        // );
+
+        $spec->setTemplateLine(
+            'Country',
+            'getCountryPublishers',
+            'data-publicationDetails.phtml'
+        );
+
+        /* novos campos */
+        $spec->setTemplateLine(
+            'Program ID',
+            'getprogramIDPublishers',
+            'data-publicationDetails.phtml'
+        );
+
+        $spec->setTemplateLine(
+            'Área de Avaliação',
+            'getareaavaliacaoPublishers',
+            'data-publicationDetails.phtml'
+        );
+
+        $spec->setTemplateLine(
+            'Grande Área',
+            'getgrandeareaPublishers',
+            'data-publicationDetails.phtml'
+        );
+
+        /* Fim novos campos */
 
         $spec->setLine(
             'Edition',
@@ -222,11 +239,14 @@ class RecordDataFormatterFactory extends \VuFind\View\Helper\Root\RecordDataForm
         );
 
         $spec->setTemplateLine(
-            'CNPq Subject',
+            'CNPQ Subjects',
             'getCNPQSubjects',
             'data-allSubjectHeadings.phtml'
         );
 
+        $spec->setLine('Abstract', 'getAbstractPor');
+        $spec->setLine('English Abstract', 'getAbstractEng');
+        $spec->setLine('Spanish Abstract', 'getAbstractSpa');
 
         $spec->setTemplateLine(
             'child_records',
@@ -234,16 +254,17 @@ class RecordDataFormatterFactory extends \VuFind\View\Helper\Root\RecordDataForm
             'data-childRecords.phtml',
             ['allowZero' => false]
         );
-        $spec->setTemplateLine('Download full', true, 'data-onlineAccess.phtml');
-
+        $spec->setTemplateLine('Access link', true, 'data-onlineAccess.phtml');
         $spec->setTemplateLine(
             'Related Items',
             'getAllRecordLinks',
             'data-allRecordLinks.phtml'
         );
-        $spec->setTemplateLine('Tags', true, 'data-tags.phtml');
+        // $spec->setTemplateLine('Tags', true, 'data-tags.phtml');
+
         return $spec->getArray();
     }
+
 
     /**
      * Get default specifications for displaying data in the description tab.

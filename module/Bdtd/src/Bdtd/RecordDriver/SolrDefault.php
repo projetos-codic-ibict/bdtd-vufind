@@ -8,18 +8,21 @@ class SolrDefault extends \VuFind\RecordDriver\SolrDefault
 {
 
 
-  const SUFFIX_STR = '.fl_str_mv';
-  const SUFFIX_TXT = '.fl_txt_mv';
+  const NA_MESSAGE = "Não Informado pela instituição";
 
 
 
-  public function getFieldsValues($fields, $suffix = self::SUFFIX_STR)
+  public function getFieldsValuesDefault($fields)
   {
     $values = [];
 
     foreach ($fields as $field) {
-      if (isset($this->fields[$field . $suffix])) {
-        $values = array_merge($values, $this->fields[$field . $suffix]);
+      if (isset($this->fields[$field])) {
+        $field_value = $this->fields[$field];
+        if (!is_array($field_value))
+          $field_value = array($field_value);
+
+        $values = array_merge($values, $field_value);
       }
     }
 
@@ -27,21 +30,36 @@ class SolrDefault extends \VuFind\RecordDriver\SolrDefault
   }
 
 
-
-  public function getFieldValue($field, $suffix = self::SUFFIX_STR)
+  public function getFieldValue($field)
   {
     $value = null;
+    $onlyField = array($field);
 
-    if (isset($this->fields[$field . $suffix])) {
-      $value = $this->fields[$field . $suffix];
+    $value = $this->getFieldsValues($onlyField);
 
-      if (is_array($value))
-        $value = $value[0];
+    if (is_array($value)) {
+      $value = $value[0];
     }
 
     return $value;
   }
 
+  /**
+   * Get all field occurrences
+   *
+   * @param array $fields to compile and return
+   * @return array
+   */
+  public function getFieldsValues($fields, $na_message = true)
+  {
+    $values = $this->getFieldsValuesDefault($fields);
+
+    if (sizeof($values) == 0 && $na_message) {
+      array_push($values, self::NA_MESSAGE);
+    }
+
+    return $values;
+  }
 
   /**
    * Deduplicate author information into associative array with main/corporate/
@@ -58,6 +76,53 @@ class SolrDefault extends \VuFind\RecordDriver\SolrDefault
   }
 
   /**
+   * Get Author Information with Associated Data Fields
+   *
+   * @param string $index      The author index [primary, corporate, or secondary]
+   * used to construct a method name for retrieving author data (e.g.
+   * getPrimaryAuthors).
+   * @param array  $dataFields An array of fields to used to construct method
+   * names for retrieving author-related data (e.g., if you pass 'role' the
+   * data method will be similar to getPrimaryAuthorsRoles). This value will also
+   * be used as a key associated with each author in the resulting data array.
+   *
+   * @return array
+   */
+  /*public function getAuthorDataFields($index, $dataFields = [])
+  {
+      $data = $dataFieldValues = [];
+
+      // Collect author data
+      $authorMethod = sprintf('get%sAuthors', ucfirst($index));
+      $authors = $this->tryMethod($authorMethod, [], []);
+
+      // Collect attribute data
+      foreach ($dataFields as $field) {
+          $fieldMethod = $authorMethod . ucfirst($field) . 's';
+          $dataFieldValues[$field] = $this->tryMethod($fieldMethod, [], []);
+      }
+
+      // Match up author and attribute data (this assumes that the attribute
+      // arrays have the same indices as the author array; i.e. $author[$i]
+      // has $dataFieldValues[$attribute][$i].
+      foreach ($authors as $i => $author) {
+          if (!isset($data[$author])) {
+              $data[$author] = [];
+          }
+
+          foreach ($dataFieldValues as $field => $dataFieldValue) {
+              if (!empty($dataFieldValue[$i])) {
+                  $data[$author][$field][] = $dataFieldValue[$i];
+              } else {
+                $data[$author][$field][] = ["NA"];
+              }
+          }
+      }
+
+      return $data;
+  }*/
+
+  /**
    ** AUTHORS Data
    */
 
@@ -67,7 +132,7 @@ class SolrDefault extends \VuFind\RecordDriver\SolrDefault
    */
   public function getPrimaryAuthorsProfiles()
   {
-    return $this->getFieldsValues(['dc.contributor.authorLattes']);
+    return $this->getFieldsValues(['dc.contributor.authorLattes.fl_str_mv'], false);
   }
 
 
@@ -90,19 +155,9 @@ class SolrDefault extends \VuFind\RecordDriver\SolrDefault
   {
     $authors = [];
     foreach (['advisor', 'coadvisor', 'referee'] as $type) {
-      $authors[$type] = $this->getAuthorDataFields($type, $dataFields);
+      $authors[$type] = parent::getAuthorDataFields($type, $dataFields);
     }
     return $authors;
-  }
-
-  /**
-   * Get the item's source.
-   *
-   * @return string
-   */
-  public function getSource()
-  {
-    return $this->fields['reponame_str'];
   }
 
 
@@ -111,11 +166,11 @@ class SolrDefault extends \VuFind\RecordDriver\SolrDefault
    */
   public function getAdvisorAuthors()
   {
-    return $this->getFieldsValues(['dc.contributor.advisor1', 'dc.contributor.advisor2']);
+    return $this->getFieldsValues(['dc.contributor.advisor1.fl_str_mv', 'dc.contributor.advisor2.fl_str_mv']);
   }
   public function getAdvisorAuthorsProfiles()
   {
-    return $this->getFieldsValues(['dc.contributor.advisor1Lattes', 'dc.contributor.advisor2Lattes']);
+    return $this->getFieldsValues(['dc.contributor.advisor1Lattes.fl_str_mv', 'dc.contributor.advisor2Lattes.fl_str_mv'], false);
   }
 
   /**
@@ -123,11 +178,12 @@ class SolrDefault extends \VuFind\RecordDriver\SolrDefault
    */
   public function getCoadvisorAuthors()
   {
-    return $this->getFieldsValues(['dc.contributor.advisor-co1', 'dc.contributor.advisor-co2']);
+    // return $this->getFieldsValues(['dc.contributor.advisor-co1.fl_str_mv','dc.contributor.advisor-co2.fl_str_mv'], false);
+    return $this->getFieldsValues(['dc.contributor.co.fl_str_mv'], false);
   }
   public function getCoadvisorAuthorsProfiles()
   {
-    return $this->getFieldsValues(['dc.contributor.advisor-co1Lattes', 'dc.contributor.advisor-co2Lattes']);
+    return $this->getFieldsValues(['dc.contributor.advisor-co1Lattes.fl_str_mv', 'dc.contributor.advisor-co2Lattes.fl_str_mv'], false);
   }
 
   /**
@@ -135,11 +191,17 @@ class SolrDefault extends \VuFind\RecordDriver\SolrDefault
    */
   public function getRefereeAuthors()
   {
-    return $this->getFieldsValues(['dc.contributor.referee1', 'dc.contributor.referee2', 'dc.contributor.referee3', 'dc.contributor.referee4', 'dc.contributor.referee5']);
+    return $this->getFieldsValues([
+      'dc.contributor.referee1.fl_str_mv', 'dc.contributor.referee2.fl_str_mv',
+      'dc.contributor.referee3.fl_str_mv', 'dc.contributor.referee4.fl_str_mv', 'dc.contributor.referee5.fl_str_mv'
+    ]);
   }
   public function getRefereeAuthorsProfiles()
   {
-    return $this->getFieldsValues(['dc.contributor.referee1Lattes', 'dc.contributor.referee2Lattes', 'dc.contributor.referee3Lattes', 'dc.contributor.referee4Lattes', 'dc.contributor.referee5Lattes']);
+    return $this->getFieldsValues([
+      'dc.contributor.referee1Lattes.fl_str_mv', 'dc.contributor.referee2Lattes.fl_str_mv',
+      'dc.contributor.referee3Lattes.fl_str_mv', 'dc.contributor.referee4Lattes.fl_str_mv', 'dc.contributor.referee5Lattes.fl_str_mv'
+    ], false);
   }
 
 
@@ -162,7 +224,7 @@ class SolrDefault extends \VuFind\RecordDriver\SolrDefault
    */
   public function getSubjectsByField($field, $type, $source, $extended = false)
   {
-    $headings =  $this->getFieldsValues([$field]);
+    $headings =  $this->getFieldsValues([$field], false);
 
     // The Solr index doesn't currently store subject headings in a broken-down
     // format, so we'll just send each value as a single chunk.  Other record
@@ -179,32 +241,36 @@ class SolrDefault extends \VuFind\RecordDriver\SolrDefault
   {
     $headings = [];
 
-    $headings = array_merge($headings,  $this->getSubjectsByField("dc.subject.cnpq", "cnpq", "cnpq", $extended));
-    $headings = array_merge($headings,  $this->getSubjectsByField("dc.subject.eng", "original", "eng", $extended));
-    $headings = array_merge($headings,  $this->getSubjectsByField("dc.subject.spa", "original", "spa", $extended));
-    $headings = array_merge($headings,  $this->getSubjectsByField("dc.subject.por", "original", "por", $extended));
+    $headings = array_merge($headings,  $this->getSubjectsByField("dc.subject.cnpq.fl_str_mv", "cnpq", "cnpq", $extended));
+    $headings = array_merge($headings,  $this->getSubjectsByField("dc.subject.eng.fl_str_mv", "original", "eng", $extended));
+    $headings = array_merge($headings,  $this->getSubjectsByField("dc.subject.spa.fl_str_mv", "original", "spa", $extended));
+    $headings = array_merge($headings,  $this->getSubjectsByField("dc.subject.por.fl_str_mv", "original", "por", $extended));
+
+    if (sizeof($headings) == 0) {
+      array_push($headings, self::NA_MESSAGE);
+    }
 
     return $headings;
   }
 
   public function getCNPQSubjects()
   {
-    return  $this->getSubjectsByField("dc.subject.cnpq", "cnpq", "cnpq");
+    return  $this->getSubjectsByField("dc.subject.cnpq.fl_str_mv", "cnpq", "cnpq");
   }
 
   public function getEngSubjects()
   {
-    return  $this->getSubjectsByField("dc.subject.eng", "original", "eng");
+    return  $this->getSubjectsByField("dc.subject.eng.fl_str_mv", "original", "eng");
   }
 
   public function getSpaSubjects()
   {
-    return  $this->getSubjectsByField("dc.subject.spa", "original", "spa");
+    return  $this->getSubjectsByField("dc.subject.spa.fl_str_mv", "original", "spa");
   }
 
   public function getPorSubjects()
   {
-    return  $this->getSubjectsByField("dc.subject.por", "original", "por");
+    return  $this->getSubjectsByField("dc.subject.por.fl_str_mv", "original", "por");
   }
 
 
@@ -240,42 +306,71 @@ class SolrDefault extends \VuFind\RecordDriver\SolrDefault
 
   public function getRootPublishers()
   {
-    return $this->getPublicationDetailsByPublishers($this->getFieldsValues(['dc.publisher.none']));
+    return $this->getPublicationDetailsByPublishers($this->getFieldsValues(['dc.publisher.none.fl_str_mv']));
   }
 
   public function getProgramPublishers()
   {
-    return  $this->getPublicationDetailsByPublishers($this->getFieldsValues(['dc.publisher.program']));
+    return  $this->getPublicationDetailsByPublishers($this->getFieldsValues(['dc.publisher.program.fl_str_mv']));
   }
 
   public function getDepartmentPublishers()
   {
-    return $this->getPublicationDetailsByPublishers($this->getFieldsValues(['dc.publisher.department']));
+    return $this->getPublicationDetailsByPublishers($this->getFieldsValues(['dc.publisher.department.fl_str_mv']));
   }
 
+  public function getCountryPublishers()
+  {
+    return $this->getPublicationDetailsByPublishers($this->getFieldsValues(['dc.publisher.country.fl_str_mv']));
+  }
+
+  public function getKnowledgeareaPublishers()
+  {
+    return $this->getPublicationDetailsByPublishers($this->getFieldsValues(['dc.publisher.knowledgearea.fl_str_mv']));
+  }
+
+  /*Mostra novos campos no registro programID, areaavaliacao, grandearea*/
+  public function getprogramIDPublishers()
+  {
+    return $this->getPublicationDetailsByPublishers($this->getFieldsValues(['dc.publisher.programID.fl_str_mv']));
+  }
+
+  public function getareaavaliacaoPublishers()
+  {
+    return $this->getPublicationDetailsByPublishers($this->getFieldsValues(['dc.publisher.areaavaliacao.fl_str_mv']));
+  }
+
+  public function getgrandeareaPublishers()
+  {
+    return $this->getPublicationDetailsByPublishers($this->getFieldsValues(['dc.publisher.grandearea.fl_str_mv']));
+  }
+
+  /* Fim - Mostra novos campos */
 
   /**
    * DESCRIPTION
    *
    */
+
   public function getAbstractPor()
   {
-    return $this->getFieldsValues(['dc.description.abstract.por'], self::SUFFIX_TXT);
+    //return $this->getFieldsValues(['dc.description.abstract.por.fl_str_mv'], false);
+    return $this->getFieldsValues(['dc.description.resumo.por.fl_txt_mv'], false);
   }
 
   public function getAbstractEng()
   {
-    return $this->getFieldsValues(['dc.description.abstract.eng'], self::SUFFIX_TXT);
+    return $this->getFieldsValues(['dc.description.abstract.eng.fl_txt_mv'], false);
   }
 
   public function getAbstracSpa()
   {
-    return $this->getFieldsValues(['dc.description.abstract.spa'], self::SUFFIX_TXT);
+    return $this->getFieldsValues(['dc.description.abstract.spa.fl_txt_mv'], false);
   }
 
   public function getCitation()
   {
-    return $this->getFieldsValues(['dc.identifier.citation']);
+    return $this->getFieldsValues(['dc.identifier.citation.fl_str_mv']);
   }
 
   /**
@@ -283,28 +378,21 @@ class SolrDefault extends \VuFind\RecordDriver\SolrDefault
    **/
   public function getAccessLevel()
   {
-    return $this->getFieldValue('eu_rights', '_str_mv');
+    return $this->getFieldValue('eu_rights_str_mv');
   }
 
   public function getURLsArray()
   {
-    // If non-empty, map internal URL array to expected return format;
-    // otherwise, return empty array:
-    if (isset($this->fields['url']) && is_array($this->fields['url'])) {
-
-      return $this->fields['url'];
-    }
-    return [];
+    return $this->getFieldsValues(['url'], false);
   }
 
-  // LA Referencia Estatísticas 
   public function getIdentifierOAI()
   {
-    return $this->getFieldValue("oai_identifier_str");
+    return $this->getFieldValue('oai_identifier_str');
   }
-  // LA Referencia Estatísticas 
+
   public function getRepositoryID()
   {
-    return $this->getFieldValue("repository_id_str");
+    return $this->getFieldValue('repository_id_str');
   }
 }
