@@ -43,10 +43,10 @@ class RecordDataFormatterFactory extends \VuFind\View\Helper\Root\RecordDataForm
             ['recordLink' => 'title']
         );
 
-        // $spec->setLine(
-        //     'Access Level',
-        //     'getAccessLevel'
-        // );
+        $spec->setLine(
+            'Access Level',
+            'getAccessLevel'
+        );
 
 
         $spec->setTemplateLine(
@@ -241,7 +241,7 @@ class RecordDataFormatterFactory extends \VuFind\View\Helper\Root\RecordDataForm
             'getAllRecordLinks',
             'data-allRecordLinks.phtml'
         );
-        // $spec->setTemplateLine('Tags', true, 'data-tags.phtml');
+        $spec->setTemplateLine('Tags', true, 'data-tags.phtml');
         return $spec->getArray();
     }
 

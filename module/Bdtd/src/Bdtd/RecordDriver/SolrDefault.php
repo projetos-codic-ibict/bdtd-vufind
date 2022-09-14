@@ -13,17 +13,13 @@ class SolrDefault extends \VuFind\RecordDriver\SolrDefault
 
 
 
-  public function getFieldsValues($fields)
+  public function getFieldsValues($fields, $suffix = self::SUFFIX_STR)
   {
     $values = [];
 
     foreach ($fields as $field) {
-      if (isset($this->fields[$field])) {
-        $field_value = $this->fields[$field];
-        if (!is_array($field_value))
-          $field_value = array($field_value);
-
-        $values = array_merge($values, $field_value);
+      if (isset($this->fields[$field . $suffix])) {
+        $values = array_merge($values, $this->fields[$field . $suffix]);
       }
     }
 
@@ -31,19 +27,16 @@ class SolrDefault extends \VuFind\RecordDriver\SolrDefault
   }
 
 
-  public function getFieldValue($field)
+
+  public function getFieldValue($field, $suffix = self::SUFFIX_STR)
   {
     $value = null;
-    $onlyField = array($field);
 
-    $value = $this->getFieldsValues($onlyField);
+    if (isset($this->fields[$field . $suffix])) {
+      $value = $this->fields[$field . $suffix];
 
-    if (is_array($value)) {
-      if (count($value) > 0)
-
+      if (is_array($value))
         $value = $value[0];
-      else
-        return "";
     }
 
     return $value;
@@ -100,6 +93,16 @@ class SolrDefault extends \VuFind\RecordDriver\SolrDefault
       $authors[$type] = $this->getAuthorDataFields($type, $dataFields);
     }
     return $authors;
+  }
+
+  /**
+   * Get the item's source.
+   *
+   * @return string
+   */
+  public function getSource()
+  {
+    return $this->fields['reponame_str'];
   }
 
 
