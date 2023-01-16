@@ -1,3 +1,4 @@
+<?php $this->layout()->nocontainerclass = true; ?>
 <?php
 // Set default value if necessary:
 if (!isset($this->searchClassId)) {
@@ -99,9 +100,9 @@ $showFilters = $filterDetails && (isset($results) || $options->getRetainFilterSe
       <?php endif; ?>
     </div>
     <div class="larger search-btn">
-      <button type="submit" class="btn btn-search-primary"><i class="fa fa-search" aria-hidden="true"></i> <?= $this->transEsc("Find") ?></button>
+      <button type="submit" class="btn contained-primary"><i class="fa fa-search" aria-hidden="true"></i> <?= $this->transEsc("Find") ?></button>
       <?php if ($advSearch) : ?>
-        <a href="<?= $this->url($advSearch) . (($this->searchId ?? false) ? '?edit=' . $this->escapeHtmlAttr($this->searchId) : $hiddenFilterParams) ?>" class="btn btn-secondary" rel="nofollow"><?= $this->transEsc("Advanced Search") ?></a>
+        <a href="<?= $this->url($advSearch) . (($this->searchId ?? false) ? '?edit=' . $this->escapeHtmlAttr($this->searchId) : $hiddenFilterParams) ?>" class="btn outlined-primary" rel="nofollow"><?= $this->transEsc("Advanced Search") ?></a>
       <?php endif; ?>
       <?php if ($geoUrl = $this->geocoords()->getSearchUrl($options)) : ?>
         <a href="<?= $geoUrl ?>" class="btn btn-link"><?= $this->transEsc('Geographic Search') ?></a>

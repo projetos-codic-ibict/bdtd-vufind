@@ -2,6 +2,7 @@
 return [
     'extends' => 'bootstrap3',
     'css' => [
+        'style.css',
         'custom.css',
         'datatables.min.css',
         'dataTables.bootstrap.min.css',
