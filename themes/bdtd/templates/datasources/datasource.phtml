@@ -4,7 +4,7 @@ $titleName = $source;
 ?>
 <?php $this->headTitle($titleName); ?>
 <?php $this->layout()->searchbox = false; ?>
-<?php $this->layout()->nocontainerclass = true; ?>
+<?php $this->layout()->layoutFull = false; ?>
 <?php $this->headLink()->appendStylesheet('loader.css'); ?>
 <?php $this->headScript()->appendFile("load-network.js"); ?>
 

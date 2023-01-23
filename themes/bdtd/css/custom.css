@@ -5,6 +5,12 @@ body {
   background-color: #f6f7f7;
   font-size: 16px;
 }
+.container-fluid{
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
 
 .search-img,
 .logo-img-center img {
@@ -721,6 +727,10 @@ a.btn {
   justify-content: space-between;
 }
 
+.indicators a{
+  color: var(--font-family-base);
+  text-decoration: none;
+}
 .search-box .indicators .item {
   padding: 8px 36px;
   border-radius: 8px;

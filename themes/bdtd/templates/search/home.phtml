@@ -12,6 +12,7 @@ if (!isset($this->searchClassId)) {
 
 $this->layout()->breadcrumbs = false;
 ?>
+<?php $this->layout()->layoutFull = true; ?>
 <?php $this->headScript()->appendFile("indicators-home.js"); ?>
 <div class="search-box ">
   <div class="container">

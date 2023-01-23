@@ -210,7 +210,7 @@ JS;
     </div>
   </nav>
   <div role="main" class="main">
-    <div id="content" class="<?php if (!$this->layout()->nocontainerclass) : ?>container<?php endif; ?>">
+    <div id="content" class="<?php if ($this->layout()->layoutFull) : ?>container-fluid<?php else : ?>container<?php endif; ?>">
       <?= $this->layout()->content ?>
     </div>
   </div>
