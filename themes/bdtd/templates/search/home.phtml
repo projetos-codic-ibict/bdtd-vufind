@@ -12,7 +12,7 @@ if (!isset($this->searchClassId)) {
 
 $this->layout()->breadcrumbs = false;
 ?>
-
+<?php $this->headScript()->appendFile("indicators-home.js"); ?>
 <div class="search-box ">
   <div class="container">
     <div class="row">
@@ -27,29 +27,29 @@ $this->layout()->breadcrumbs = false;
       <div class="item">
         <i class="fa fa-university"></i>
         <div class="data">
-          <span class="main-highlight">129</span>
+          <span id="institution" class="main-highlight">000</span>
           <span>Instituições</span>
         </div>
       </div>
       <div class="item"> <i class="fa fa-book"></i>
-        <div class="data">
-          <span class="main-highlight">129</span>
+        <a href="Search/Results?limit=0&lookfor=%2A%3A%2A&type=AllFields&filter%5B%5D=format%3A%22doctoralThesis%22" class="data">
+          <span id="doctorThesis" class="main-highlight">000</span>
           <span>Teses</span>
-        </div>
+        </a>
       </div>
       <div class="item">
         <i class="fa fa-file-text" aria-hidden="true"></i>
-        <div class="data">
-          <span class="main-highlight">129</span>
+        <a href="Search/Results?limit=0&lookfor=%2A%3A%2A&type=AllFields&filter%5B%5D=format%3A%22masterThesis%22" class="data">
+          <span id="masterThesis" class="main-highlight">000</span>
           <span>Dissertações</span>
-        </div>
+        </a>
       </div>
       <div class="item">
         <i class="fa fa-file" aria-hidden="true"></i>
-        <div class="data">
-          <span class="main-highlight">129</span>
+        <a href="Search/Results" class="data">
+          <span id="total" class="main-highlight">000</span>
           <span>Documentos</span>
-        </div>
+        </a>
       </div>
     </div>
     <?php $this->slot('search-home-hero')->start() ?>
@@ -65,31 +65,31 @@ $this->layout()->breadcrumbs = false;
         <h4 class="main-highlight">
           Participe
         </h4>
-        <i class="fa fa-file" aria-hidden="true"></i>
+        <i class="fa fa-comments" aria-hidden="true"></i>
       </div>
       <p>SAIBA COMO PARTICIPAR DA BIBLIOTECA DIGITAL BRASILEIRA DE TESES E DISSERTAÇÕES (BDTD)</p>
     </div>
     <div class="item">
       <div class="text-primary flex-row-spaced-between">
         <h4 class="main-highlight">
-          Participe
+          Tecnologia
         </h4>
-        <i class="fa fa-file" aria-hidden="true"></i>
+        <i class="fa fa-laptop" aria-hidden="true"></i>
       </div>
-      <p>SAIBA COMO PARTICIPAR DA BIBLIOTECA DIGITAL BRASILEIRA DE TESES E DISSERTAÇÕES (BDTD)</p>
+      <p>A Biblioteca Digital Brasileira de Teses e Dissertações (BDTD) desde a sua criação faz uso de soluções livres em toda a sua estrutura de funcionamento.</p>
     </div>
     <div class="item">
       <div class="text-primary flex-row-spaced-between">
         <h4 class="main-highlight">
-          Participe
+          Indicadores
         </h4>
-        <i class="fa fa-file" aria-hidden="true"></i>
+        <i class="fa fa-line-chart" aria-hidden="true"></i>
       </div>
-      <p>SAIBA COMO PARTICIPAR DA BIBLIOTECA DIGITAL BRASILEIRA DE TESES E DISSERTAÇÕES (BDTD)</p>
+      <p>A Biblioteca Digital Brasileira de Teses e Dissertações (BDTD) desde a sua criação faz uso de soluções livres em toda a sua estrutura de funcionamento.</p>
     </div>
   </div>
 </div>
 <!-- importa a seção de informações abaixo da busca na página inicial -->
 <div class="container">
-<?= $this->render('content-home.phtml') ?>
+  <?= $this->render('content-home.phtml') ?>
 </div>

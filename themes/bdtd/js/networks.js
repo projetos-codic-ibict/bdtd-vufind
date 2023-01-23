@@ -6,6 +6,7 @@ async function getAllNetworks() {
     const response = await axios.get(`${REMOTE_API_URL}/networks`);
     hideLoader();
     const networks = response.data;
+    console.log('networks', networks)
     return networks;
   } catch (errors) {
     hideLoader();

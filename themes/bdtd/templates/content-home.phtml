@@ -1,10 +1,38 @@
 <?php $this->headScript()->appendFile("indicators-home.js"); ?>
 
-<hr class="divider">
+<div class="about">
+    <h2 class="main-second-title">BDTD</h2>
+    <br />
+    <p>
+        O IBICT desenvolveu e coordena a Biblioteca Digital Brasileira de Teses e Dissertações (BDTD), que integra os sistemas de informação de teses e dissertações existentes nas instituições de ensino e pesquisa do Brasil, e também estimula o registro e a publicação de teses e dissertações eletrônico. A BDTD, em parceria com as instituições brasileiras de ensino e pesquisa, possibilita que a comunidade brasileira
+    </p>
+</div>
 
 <div class="partners">
-    <div class="partner"></div>
-    <div class="partner"></div>
-    <div class="partner"></div>
-    <div class="partner"></div>
+    <div class="partner oasisbr">
+        <img src="<?= $this->imageLink('partners/oasisbr.png'); ?>" alt="logo do oasisbr">
+        <div>
+            <h3 class="main-highlight">Oaisbr</h3>
+            <p>Portal brasileiro de publicações e dados científicos em acesso aberto</p>
+        </div>
+    </div>
+    <div class="partner deposita">
+        <img src="<?= $this->imageLink('partners/deposita.png'); ?>" alt="logo do deposita">
+        <div>
+            <h3 class="main-highlight">Deposita</h3>
+            <p>Repositório comum do Brasil</p>
+        </div>
+    </div>
+    <div class="partner lareferencia"> <img src="<?= $this->imageLink('partners/la_referencia.png'); ?>" alt="logo da la-refencia">
+        <div>
+            <h3 class="main-highlight">La referência</h3>
+            <p>The Networked Digital Library of Theses and Dissertations (NDLTD)</p>
+        </div>
+    </div>
+    <div class="partner ndltd"> <img src="<?= $this->imageLink('partners/ndltd.png'); ?>" alt="logo da ndltd">
+        <div>
+            <h3 class="main-highlight">NDLTD</h3>
+            <p>The Networked Digital Library of Theses and Dissertations (NDLTD)</p>
+        </div>
+    </div>
 </div>

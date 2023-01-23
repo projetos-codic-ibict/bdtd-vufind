@@ -3,6 +3,7 @@
 html,
 body {
   background-color: #f6f7f7;
+  font-size: 16px;
 }
 
 .search-img,
@@ -57,10 +58,15 @@ footer {
 header.navbar {
   background-color: #fefefe;
   border-bottom: 1px solid #f6f7f7;
-  min-height: 96px;
   display: flex;
   align-items: center;
   margin-bottom: 0;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo-img {
@@ -84,6 +90,9 @@ header.navbar {
 
 .navbar-nav>li>a {
   border-bottom: 2px solid transparent;
+  min-height: 96px;
+  display: flex;
+  align-items: center;
 }
 
 .nav>li>a:hover,
@@ -446,26 +455,10 @@ li.language a {
   margin-bottom: 1rem;
 }
 
-.about,
-.faq {
-  color: #808080;
-  font-size: 1.3rem;
-  font-weight: 300;
-}
-
 .oasisbr-icon {
   max-width: 300px;
 }
 
-.about .description {
-  padding: 1rem;
-}
-
-.about .card {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 1rem;
-}
 
 .btn-collapse {
   text-decoration: none;
@@ -491,13 +484,6 @@ li.language a {
   content: "\f077";
 }
 
-.about .row {
-  margin: 2rem 0;
-}
-
-.about li {
-  margin-bottom: 10px;
-}
 
 .result {
   border: 1px solid #ccc;
@@ -685,12 +671,12 @@ td span.format {
 
 /* #################################################################################? */
 /* bdtd  */
-.navbar-collapse{
+.navbar-collapse {
   padding-left: 0;
   padding-right: 0;
 }
 
-.flex-row-spaced-between{
+.flex-row-spaced-between {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -711,13 +697,6 @@ a.btn {
   color: #fff;
 }
 
-@media (max-width: 768px) {
-  .search-box .indicators {
-    flex-direction: column;
-    row-gap: 16px;
-  }
-}
-
 .search-header {
   display: flex;
   flex-direction: column;
@@ -736,7 +715,8 @@ a.btn {
   font-size: 24px;
 }
 
-.search-box .indicators, .search-info {
+.search-box .indicators,
+.search-info {
   display: flex;
   justify-content: space-between;
 }
@@ -781,11 +761,11 @@ a.btn {
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
 }
 
-.search-info h4{
+.search-info h4 {
   text-transform: uppercase;
 }
 
-.search-info p{
+.search-info p {
   text-transform: lowercase;
 }
 
@@ -812,21 +792,147 @@ input:focus {
   outline: 1px solid #047374;
 }
 
-.partners{
+.partners {
   display: flex;
   flex-wrap: wrap;
   gap: 48px;
   justify-content: space-between;
 }
 
-.partners .partner{
+.partners .partner {
   min-width: 45%;
-  min-height: 200px;
+  max-width: 45%;
   border-radius: 8px;
+}
+
+.search-info .fa {
+  font-size: 2rem;
+}
+
+.about {
+  border-bottom: 1px solid #E1E1E1;
+  border-top: 1px solid #E1E1E1;
+  margin: 60px 0;
+  padding: 60px 0;
+  font-size: 24px;
+}
+
+.about h2 {
+  color: #1A5544;
+}
+
+.partner div {
+  padding: 16px;
+  color: #fff;
+  width: 100%;
+  min-height: 110px;
+}
+
+.partner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.partner img {
+  max-width: 300px;
+  margin: 16px;
+  max-height: 100px;
+}
+
+.partners .oasisbr {
   border: 2px solid #76B865;
 }
 
-.divider{
-  margin: 100px 0;
-  border-color: #E1E1E1;
+.partners .oasisbr div {
+  background-color: #76B865;
+}
+
+.partners .deposita {
+  border: 2px solid #0F49BD;
+}
+
+.partners .deposita div {
+  background-color: #0F49BD;
+}
+
+
+.partners .lareferencia {
+  border: 2px solid #8455A3;
+}
+
+.partners .lareferencia div {
+  background-color: #8455A3;
+}
+
+.partners .ndltd {
+  border: 2px solid #0B2341;
+}
+
+.partners .ndltd div {
+  background-color: #0B2341;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* bdtd mobile  */
+/* ################################################################################  */
+@media (max-width: 768px) {
+  .navbar .container {
+    width: 100%;
+  }
+
+  .navbar-nav>li>a {
+    border-bottom: 2px solid transparent;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-main {
+    flex-direction: column;
+  }
+
+  .navbar-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .navbar .container:before,
+  .navbar .container:after {
+    display: none;
+  }
+
+  .collapse .logo {
+    display: none;
+  }
+
+  .search-info {
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  .search-box .indicators {
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  .partners .partner {
+    max-width: 100%;
+    min-width: 100%;
+  }
+
+
 }
