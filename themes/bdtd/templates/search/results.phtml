@@ -2,7 +2,7 @@
 // Set up page title:
 $lookfor = $this->results->getUrlQuery()->isQuerySuppressed() ? '' : $this->params->getDisplayQuery();
 $headTitle = $this->slot('head-title')
-  ->get($this->translate('Search Results') . (empty($lookfor) ? '' : " - {$lookfor}"));
+  ->get($this->translate('Search Results') . (empty($lookfor) ? '' : ": {$lookfor}"));
 $this->headTitle($headTitle);
 
 // Set up search box:
@@ -43,12 +43,9 @@ if ($this->params->getOptions()->getListViewOption() !== 'full') {
 }
 ?>
 
-<div class="<?= $this->layoutClass('mainbody') ?>">
+<div class="result-header">
   <?php if (($recordTotal = $this->results->getResultTotal()) > 0) : // only display these at very top if we have results 
   ?>
-    <a style="float: right; margin-top: -40px; margin-right: 16px;" href="<?= $this->url('bulkexport-home') . '?total=' . $recordTotal ?>" data-lightbox>
-      <i class="fa fa-file-excel-o" aria-hidden="true"></i> <?= $this->transEsc('Export CSV') ?>
-    </a>
     <?php foreach ($this->results->getRecommendations('top') as $index => $current) : ?>
       <?= $this->recommend($current, 'top', $index) ?>
     <?php endforeach; ?>
@@ -73,9 +70,14 @@ if ($this->params->getOptions()->getListViewOption() !== 'full') {
         <?= $this->render('search/controls/view.phtml') ?>
       </div>
     <?php endif; ?>
+    <a class="btn outlined-primary" href="<?= $this->url('bulkexport-home') . '?total=' . $recordTotal ?>" data-lightbox>
+      <?= $this->transEsc('Export CSV') ?> <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+    </a>
   </div>
   <?php /* End Listing Options */ ?>
+</div>
 
+<div class="<?= $this->layoutClass('mainbody') ?>">
   <?php if ($recordTotal < 1) : ?>
     <p>
       <?php
@@ -98,16 +100,15 @@ if ($this->params->getOptions()->getListViewOption() !== 'full') {
       <?php endif; ?>
     <?php endforeach; ?>
   <?php else : ?>
+
     <form id="search-cart-form" method="post" name="bulkActionForm" action="<?= $this->url('cart-searchresultsbulk') ?>" data-lightbox data-lightbox-onsubmit="bulkFormHandler">
       <?= $this->context($this)->renderInContext('search/bulk-action-buttons.phtml', ['idPrefix' => '']) ?>
     </form>
     <?= $this->render('search/list-' . $this->params->getView() . '.phtml') ?>
     <?= $this->context($this)->renderInContext('search/bulk-action-buttons.phtml', ['idPrefix' => 'bottom_', 'formAttr' => 'search-cart-form']) ?>
-    <?= $this->paginationControl($this->results->getPaginator(), 'Sliding', 'search/pagination.phtml', ['results' => $this->results, 'options' => $this->paginationOptions ?? []]) ?>
-    <!-- <?= $this->context($this)->renderInContext('search/controls/results-tools.phtml', ['results' => $this->results]) ?> -->
-    <?php /* New link for CSV export */ ?>
-    <a href="<?= $this->url('bulkexport-home') . '?total=' . $recordTotal ?>" data-lightbox><i class="fa fa-external-link" aria-hidden="true"></i> <?= $this->transEsc('Export CSV') ?></a>
-    <?php /* End new link */ ?>
+
+      <?= $this->paginationControl($this->results->getPaginator(), 'Sliding', 'search/pagination.phtml', ['results' => $this->results, 'options' => $this->paginationOptions ?? []]) ?>
+      <!-- <?= $this->context($this)->renderInContext('search/controls/results-tools.phtml', ['results' => $this->results]) ?> -->
   <?php endif; ?>
 </div>
 <?php /* End Main Listing */ ?>
