@@ -140,7 +140,7 @@ header.navbar {
   /* Do not repeat the image */
   background-size: cover;
   /* Resize the background image to cover the entire container */
-  padding: 48px 0;
+  padding: 48px 0 96px 0;
 }
 
 
@@ -804,6 +804,10 @@ a.btn {
   font-size: 24px;
 }
 
+.search-box .indicators{
+  margin-bottom: 48px;
+}
+
 .search-box .indicators,
 .search-info {
   display: flex;
@@ -839,7 +843,74 @@ a.btn {
 .search-info {
   display: flex;
   justify-content: space-between;
-  margin-top: -24px;
+}
+
+.bottom-search-form{
+  margin-top: -70px;
+}
+
+.adv-search-form{
+  margin-bottom: 48px;
+  box-shadow: 0px 0px 74px rgb(147 106 43 / 16%);
+  background-color: #fff;
+  padding: 16px 24px;
+  border-radius: 8px;
+}
+
+.adv-group-match-form .form-control{
+  max-width: 100%;
+}
+
+.adv-search{
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+  align-items: center;
+}
+
+.adv-group-match-form{
+  margin-bottom: 16px;
+}
+
+.adv-search-inputs{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.adv-search-inputs .form-control{
+  width: 50%;
+  max-width: 50%;
+
+}
+
+.adv-search:before, .adv-search:after{
+  display: none;
+}
+
+.adv-search .adv-term-remove{
+  background-color:  rgba(255, 63, 63, 0.2);
+  color: #FF3F3F;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+#groupPlaceHolder{
+  padding: 8px 0;
+  border-top: 1px solid #E6E6E6;
+  margin: 8px 0;
+}
+
+.adv-submit{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.adv-submit .btn{
+  margin-left: 16px;
 }
 
 .search-info .item {

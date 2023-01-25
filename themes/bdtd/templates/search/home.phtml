@@ -11,8 +11,9 @@ if (!isset($this->searchClassId)) {
 }
 
 $this->layout()->breadcrumbs = false;
+$this->layout()->layoutFull = true;
 ?>
-<?php $this->layout()->layoutFull = true; ?>
+
 <?php $this->headScript()->appendFile("indicators-home.js"); ?>
 <div class="search-box ">
   <div class="container">
@@ -60,7 +61,7 @@ $this->layout()->breadcrumbs = false;
   </div>
 </div>
 <div class="container">
-  <div class="search-info">
+  <div class="search-info bottom-search-form">
     <div class="item">
       <div class="text-primary flex-row-spaced-between">
         <h4 class="main-highlight">
