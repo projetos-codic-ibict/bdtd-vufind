@@ -111,3 +111,12 @@
     </a>
   <?php endif; ?>
 </div>
+
+<script>
+  $(".navbar-nav a").on("click", function(){
+    console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
+   $(".nav").find(".active").removeClass("active");
+   $(this).addClass("active");
+   console.log(this)
+});
+</script>
