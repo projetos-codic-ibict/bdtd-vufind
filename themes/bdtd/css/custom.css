@@ -930,22 +930,22 @@ a.btn {
   font-size: 1rem;
 }
 
-.adv-search-form fieldset label{
+.adv-search-form fieldset label {
   font-weight: 600;
 }
 
-.adv-filters{
+.adv-filters {
   display: flex;
   justify-content: space-between;
   gap: 8px;
   flex-wrap: wrap;
 }
 
-.adv-filters fieldset{
+.adv-filters fieldset {
   flex: 1 25%;
 }
 
-.adv-filters .solr input{
+.adv-filters .solr input {
   margin-left: 8px;
 }
 
@@ -969,9 +969,11 @@ a.btn {
   right: 0px;
   background: #FFFFFF;
 }
+
 .translateBtn div:first-child {
   width: 32px;
 }
+
 .toggle-me::after {
   transition: all ease-in-out 0.2s;
   content: attr(tooltipBtn);
@@ -1059,8 +1061,25 @@ input:focus {
   font-size: 20px;
 }
 
-.about h2 {
+.title-primary {
   color: #1A5544;
+  margin-bottom: 1rem;
+}
+
+.subtitle-secondary {
+  color: #93692B;
+  margin-bottom: 1.5rem;
+}
+
+.fulltext {
+  margin: 0 auto;
+  max-width: 760px;
+  text-align: justify;
+}
+
+
+.fulltext p {
+  margin-bottom: 1rem;
 }
 
 .partner div {
@@ -1159,7 +1178,7 @@ input:focus {
   display: block;
 }
 
-.dropdown-menu{
+.dropdown-menu {
   min-width: 100%;
 }
 
@@ -1212,7 +1231,7 @@ input:focus {
     min-width: 100%;
   }
 
-  .adv-filters{
+  .adv-filters {
     flex-direction: column;
   }
 

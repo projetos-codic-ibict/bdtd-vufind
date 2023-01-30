@@ -17,7 +17,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Institucional <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li class="">
-                <a href="<?= $this->url('about-home') ?>"><?= $this->transEsc("Institucional") ?></a>
+                <a href="<?= $this->url('about-home') ?>"><?= $this->transEsc("Sobre") ?></a>
               </li>
               <li class="">
                 <a href="<?= $this->url('about-home') ?>"><?= $this->transEsc("Institucional") ?></a>
@@ -111,12 +111,3 @@
     </a>
   <?php endif; ?>
 </div>
-
-<script>
-  $(".navbar-nav a").on("click", function(){
-    console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
-   $(".nav").find(".active").removeClass("active");
-   $(this).addClass("active");
-   console.log(this)
-});
-</script>
