@@ -17,37 +17,35 @@ $this->layout()->layoutFull = true;
 <?php $this->headScript()->appendFile("indicators-home.js"); ?>
 <div class="search-box ">
   <div class="container">
-    <div class="row">
-      <div class="col-md-7">
-        <div class="box-title">
-          <h1 class="bdtd-title"><?= $this->transEsc("Biblioteca Digital Brasileira de Teses e Dissertações") ?></h1>
-          <h4 class="bdtd-subtitle">Acesso e visibilidade às teses e dissertações brasileiras</h4>
-        </div>
-      </div>
+
+    <div class="box-title">
+      <h1 class="bdtd-title">Biblioteca Digital Brasileira de <br /> Teses e Dissertações</h1>
+      <h4 class="bdtd-subtitle">Acesso e visibilidade às teses e dissertações brasileiras</h4>
     </div>
+
     <div class="indicators text-primary">
       <div class="item">
-        <i class="fa fa-university"></i>
+        <i class="uil uil-university"></i>
         <div class="data">
           <span id="institution" class="main-highlight">000</span>
           <span>Instituições</span>
         </div>
       </div>
-      <div class="item"> <i class="fa fa-book"></i>
+      <div class="item"> <i class="uil uil-book-open"></i>
         <a href="Search/Results?limit=0&lookfor=%2A%3A%2A&type=AllFields&filter%5B%5D=format%3A%22doctoralThesis%22" class="data">
           <span id="doctorThesis" class="main-highlight">000</span>
           <span>Teses</span>
         </a>
       </div>
       <div class="item">
-        <i class="fa fa-file-text" aria-hidden="true"></i>
+        <i class="uil uil-clipboard-alt"></i>
         <a href="Search/Results?limit=0&lookfor=%2A%3A%2A&type=AllFields&filter%5B%5D=format%3A%22masterThesis%22" class="data">
           <span id="masterThesis" class="main-highlight">000</span>
           <span>Dissertações</span>
         </a>
       </div>
       <div class="item">
-        <i class="fa fa-file" aria-hidden="true"></i>
+        <i class="uil uil-file-info-alt"></i>
         <a href="Search/Results" class="data">
           <span id="total" class="main-highlight">000</span>
           <span>Documentos</span>
@@ -67,7 +65,7 @@ $this->layout()->layoutFull = true;
         <h4 class="main-highlight">
           Participe
         </h4>
-        <i class="fa fa-comments" aria-hidden="true"></i>
+        <i class="uil uil-feedback"></i>
       </div>
       <p>SAIBA COMO PARTICIPAR DA BIBLIOTECA DIGITAL BRASILEIRA DE TESES E DISSERTAÇÕES (BDTD)</p>
     </div>
@@ -76,7 +74,7 @@ $this->layout()->layoutFull = true;
         <h4 class="main-highlight">
           Tecnologia
         </h4>
-        <i class="fa fa-laptop" aria-hidden="true"></i>
+        <i class="uil uil-globe"></i>
       </div>
       <p>A Biblioteca Digital Brasileira de Teses e Dissertações (BDTD) desde a sua criação faz uso de soluções livres em toda a sua estrutura de funcionamento.</p>
     </div>
@@ -85,7 +83,7 @@ $this->layout()->layoutFull = true;
         <h4 class="main-highlight">
           Indicadores
         </h4>
-        <i class="fa fa-line-chart" aria-hidden="true"></i>
+        <i class="uil uil-chart-line"></i>
       </div>
       <p>A Biblioteca Digital Brasileira de Teses e Dissertações (BDTD) desde a sua criação faz uso de soluções livres em toda a sua estrutura de funcionamento.</p>
     </div>

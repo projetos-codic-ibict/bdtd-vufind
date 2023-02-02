@@ -6,6 +6,11 @@ body {
   font-size: 15px;
 }
 
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 .container-fluid {
   padding-left: 0;
   padding-right: 0;
@@ -34,6 +39,10 @@ body {
   align-items: center;
   gap: 1rem;
   margin-bottom: 1rem;
+}
+
+.assinatura img {
+  max-height: 80px;
 }
 
 footer {
@@ -132,7 +141,6 @@ header.navbar {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 3rem;
   background-color: #047374;
   background-image: url("../images/bg.png");
   background-position: center;
@@ -141,9 +149,15 @@ header.navbar {
   /* Do not repeat the image */
   background-size: cover;
   /* Resize the background image to cover the entire container */
-  padding: 48px 0 96px 0;
+  padding: 0px 0 80px 0;
 }
 
+.search-box .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+}
 
 .searchForm_lookfor {
   width: 100% !important;
@@ -744,6 +758,15 @@ td span.format {
 /* #################################################################################? */
 /* bdtd  */
 
+.text-primary:hover {
+  background-color: transparent;
+}
+
+
+a.text-primary:hover {
+  background-color: rgba(var(--color-rgb-primary-base), 0.2);
+}
+
 .form-control:focus {
   border-color: #44DDB1;
 }
@@ -757,6 +780,7 @@ td span.format {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  align-items: center;
 }
 
 a.btn {
@@ -782,7 +806,6 @@ a.btn {
   padding: 24px 0px;
   gap: 32px;
   color: #fff;
-  margin-bottom: 32px;
 }
 
 .search-header {
@@ -806,13 +829,9 @@ a.btn {
 }
 
 .search-box .indicators {
-  margin-bottom: 48px;
-}
-
-.search-box .indicators,
-.search-info {
   display: flex;
   justify-content: space-between;
+  gap: 32px;
 }
 
 .indicators a {
@@ -831,7 +850,8 @@ a.btn {
 }
 
 
-.search-box .indicators .item .fa {
+.search-box .indicators .item .fa,
+.search-box .indicators .uil {
   font-size: 2.5rem;
 }
 
@@ -844,6 +864,7 @@ a.btn {
 .search-info {
   display: flex;
   justify-content: space-between;
+  gap: 16px;
 }
 
 .bottom-search-form {
@@ -971,7 +992,10 @@ a.btn {
 }
 
 .translateBtn div:first-child {
-  width: 32px;
+  width: 34px;
+  background: #fff;
+  padding: 4px;
+  border-radius: 4px 0 0 4px;
 }
 
 .toggle-me::after {
@@ -1015,12 +1039,12 @@ a.btn {
 
 .search-form {
   display: flex;
-  margin: 36px 0;
   padding: 8px;
   background-color: #fff;
   gap: 1rem;
   border-radius: 8px;
   box-shadow: 0px 0px 74px rgba(147, 106, 43, 0.16);
+  align-items: center;
 }
 
 .search-input {
@@ -1039,17 +1063,17 @@ input:focus {
 .partners {
   display: flex;
   flex-wrap: wrap;
-  gap: 48px;
+  gap: 32px;
   justify-content: space-between;
 }
 
 .partners .partner {
-  min-width: 45%;
-  max-width: 45%;
+  width: 20%;
   border-radius: 8px;
 }
 
-.search-info .fa {
+.search-info .fa,
+.search-info .uil {
   font-size: 2rem;
 }
 
@@ -1094,19 +1118,30 @@ input:focus {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  gap: 8px;
 }
 
-.partner img {
-  max-width: 300px;
-  margin: 16px;
-  max-height: 100px;
+.partner .partner-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.partner-logo img {
+  max-height: 60px;
+  max-width: 140px;
+}
+
+.partner .partner-desc {
+  height: 140px;
+}
+
 
 .partners .oasisbr {
   border: 2px solid #76B865;
 }
 
-.partners .oasisbr div {
+.partners .oasisbr .partner-desc {
   background-color: #76B865;
 }
 
@@ -1114,7 +1149,7 @@ input:focus {
   border: 2px solid #0F49BD;
 }
 
-.partners .deposita div {
+.partners .deposita .partner-desc {
   background-color: #0F49BD;
 }
 
@@ -1123,7 +1158,7 @@ input:focus {
   border: 2px solid #8455A3;
 }
 
-.partners .lareferencia div {
+.partners .lareferencia .partner-desc {
   background-color: #8455A3;
 }
 
@@ -1131,7 +1166,7 @@ input:focus {
   border: 2px solid #0B2341;
 }
 
-.partners .ndltd div {
+.partners .ndltd .partner-desc {
   background-color: #0B2341;
 }
 
@@ -1182,6 +1217,9 @@ input:focus {
   min-width: 100%;
 }
 
+.searchForm_type {
+  width: auto !important;
+}
 
 /* bdtd mobile  */
 /* ################################################################################  */
@@ -1227,12 +1265,21 @@ input:focus {
   }
 
   .partners .partner {
-    max-width: 100%;
-    min-width: 100%;
+    width: 45%;
+    font-size: 0.9rem;
   }
 
   .adv-filters {
     flex-direction: column;
+  }
+
+  .main-highlight {
+    font-size: 16px;
+  }
+
+  .search-form {
+    flex-direction: column;
+    align-items: normal;
   }
 
 }
