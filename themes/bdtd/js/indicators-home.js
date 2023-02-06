@@ -15,13 +15,10 @@ function fillMasterThesis(value) {
   masterThesisElement.textContent = formatNumber(value);
 }
 
-
 function fillDoctorThesis(value) {
   const doctorThesisElement = document.querySelector("#doctorThesis");
   doctorThesisElement.textContent = formatNumber(value);
 }
-
-
 
 function fillTotal(total) {
   const totalElement = document.querySelector("#total");
@@ -29,25 +26,24 @@ function fillTotal(total) {
 }
 
 function getMasterThesisCount(formats) {
-  const masterThesis = formats.filter(
-    (format) => format.value == "masterThesis"
-  );
-  let value = 0;
-  value = masterThesis.reduce((value, item) => value + item.count, 0);
-  return value;
+  var masterThesis = formats.find((format) => {
+    return format.value == "masterThesis";
+  });
+  return masterThesis.count;
 }
 
 function getDoctorThesisCount(formats) {
-  const doctorThesis = formats.filter((format) => format.value == "doctoralThesis");
-  let value = 0;
-  value = doctorThesis.reduce((value, item) => value + item.count, 0);
-  return value;
+  var doctoralThesis = formats.find((format) => {
+    return format.value == "doctoralThesis";
+  });
+  return doctoralThesis.count;
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
   const data = await getIndicatorsByType();
   fillInstitution(data.facets.institution);
   const masterThesisCount = getMasterThesisCount(data.facets.format);
+  console.log("masterThesisCount", masterThesisCount);
   fillMasterThesis(masterThesisCount);
   const doctorThesisCount = getDoctorThesisCount(data.facets.format);
   fillDoctorThesis(doctorThesisCount);
