@@ -49,7 +49,7 @@ if ($cover) :
             <?php $summAuthors = $this->driver->getPrimaryAuthorsWithHighlighting();
             if (!empty($summAuthors)) : ?>
               <div>
-                <strong><?= $this->transEsc('by') ?></strong>
+                <span><?= $this->transEsc('By') ?></span>
                 <?php $authorCount = count($summAuthors);
                 foreach ($summAuthors as $i => $summAuthor) : ?>
                   <a href="<?= $this->record($this->driver)->getLink('author', $this->highlight($summAuthor, null, true, false)) ?>"><?= $this->highlight(rtrim($summAuthor, ',')) ?></a><?= $i + 1 < $authorCount ? ',' : '' ?>
@@ -156,21 +156,20 @@ if ($cover) :
           <?= $doi->renderTemplate() ?>
         <?php endif; ?>
         <div class="link">
-        <?php if (!is_array($urls)) $urls = [];
-        if (!$this->driver->isCollection()) :
-          $count = 0;
-          foreach ($urls as $current) : ?>
-            <?php $count++; ?>
-            <a href="<?= $this->escapeHtmlAttr($this->proxyUrl($current['url'])) ?>" class="fulltext" target="new">
-              <i class="fa fa-external-link" aria-hidden="true"></i>
-              <?= ($current['url'] == $current['desc']) ? $this->transEsc('Access document') : $this->escapeHtml($current['desc']) ?>
-              <?= sizeof($urls) > 1 ? "(" . $count . ")" : "" ?>
-            </a>
-            <br />
+          <?php if (!is_array($urls)) $urls = [];
+          if (!$this->driver->isCollection()) :
+            $count = 0;
+            foreach ($urls as $current) : ?>
+              <?php $count++; ?>
+              <a href="<?= $this->escapeHtmlAttr($this->proxyUrl($current['url'])) ?>" class="fulltext" target="new">
+                <?= ($current['url'] == $current['desc']) ? $this->transEsc('Access document') : $this->escapeHtml($current['desc']) ?>
+                <?= sizeof($urls) > 1 ? "(" . $count . ")" : "" ?>
+              </a>
+              <br />
 
-          <?php endforeach; ?>
-        <?php endif; ?>
-      </div>
+            <?php endforeach; ?>
+          <?php endif; ?>
+        </div>
       <?php endif; ?>
 
       <div class="result-formats">

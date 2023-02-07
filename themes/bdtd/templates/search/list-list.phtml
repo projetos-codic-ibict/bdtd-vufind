@@ -1,14 +1,14 @@
 <?php if (!isset($this->indexStart)) $this->indexStart = 0; ?>
 <?php $i = $this->indexStart; ?>
-<?php foreach ($this->results->getResults() as $current): ?>
+<?php foreach ($this->results->getResults() as $current) : ?>
   <?php $recordNumber = $this->results->getStartRecord() + $i - $this->indexStart; ?>
-  <div id="result<?=$i++ ?>" class="result card-results <?=$current->supportsAjaxStatus()?' ajaxItem':''?>">
-    <?php if (isset($this->showCheckboxes) && $this->showCheckboxes): ?>
-      <?=$this->record($current)->getCheckbox('', 'search-cart-form', $recordNumber)?>
+  <div id="result<?= $i++ ?>" class="result card-results <?= $current->supportsAjaxStatus() ? ' ajaxItem' : '' ?>">
+    <?php if (isset($this->showCheckboxes) && $this->showCheckboxes) : ?>
+      <?= $this->record($current)->getCheckbox('', 'search-cart-form', $recordNumber) ?>
     <?php endif; ?>
     <div class="record-number">
-      <?=$recordNumber ?>
+      <h2> <?= $recordNumber ?></h2>
     </div>
-    <?=$this->record($current)->getSearchResult('list')?>
+    <?= $this->record($current)->getSearchResult('list') ?>
   </div>
 <?php endforeach; ?>

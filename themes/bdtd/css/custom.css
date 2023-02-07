@@ -11,6 +11,18 @@ img {
   max-height: 100%;
 }
 
+@media (min-width: 768px) {
+  .sidebar {
+    width: 30%;
+  }
+}
+
+@media (min-width: 768px) {
+  .mainbody {
+    width: 70%;
+  }
+}
+
 .container-fluid {
   padding-left: 0;
   padding-right: 0;
@@ -69,8 +81,8 @@ footer {
 .facet-group .title {
   background-color: #fff;
   color: #1C8567;
-  border: 1px solid #D2D2D2;
-  border-radius: 4px;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
   padding: 16px;
   font-weight: 600;
 }
@@ -526,7 +538,8 @@ li.language a {
   margin-bottom: 16px;
 }
 
-.card-results h2 a {
+.card-results h2 a,
+.card-results .record-number {
   font-family: var(--font-family-base);
   font-weight: 800;
   line-height: 130%;
@@ -535,6 +548,15 @@ li.language a {
   color: var(--color-hex-secondary-base);
 }
 
+.card-results .record-number h2 {
+  text-align: right;
+  border-right: 2px solid var(--color-hex-secondary-base);
+  padding-right: 1rem;
+}
+
+#side-collapse-publishDate {
+  border: none;
+}
 
 
 .card-results .author {
@@ -543,11 +565,12 @@ li.language a {
 
 .card-results .author .icon {
   color: #4fb1f5;
+  background-color: #e7f5fb;
 }
 
 .card-results .author .publish-date {
   font-size: 12px;
-  color: #4fb1f5;
+  color: #828282;
 }
 
 .card-results .author :last-child,
@@ -1047,6 +1070,10 @@ a.btn {
   align-items: center;
 }
 
+.form-disabled {
+  box-shadow: none;
+}
+
 .search-input {
   width: 100%;
   border: 1px solid #E6E6E6;
@@ -1054,10 +1081,24 @@ a.btn {
   padding: 4px 8px;
 }
 
+input[disabled],
+.form-disabled .form-control[disabled],
+.form-disabled .btn[disabled] {
+  background-color: #eee;
+  color: #8A8787;
+  opacity: .8;
+}
+
 input:hover,
 input:active,
 input:focus {
   outline: 1px solid #44DDB1;
+}
+
+input[disabled]:hover,
+input[disabled]:active,
+input[disabled]:focus {
+  outline: none;
 }
 
 .partners {
@@ -1219,6 +1260,38 @@ input:focus {
 
 .searchForm_type {
   width: auto !important;
+}
+
+a.js-facet-item {
+  color: #828282;
+  text-decoration: none;
+
+  border-radius: 4px;
+}
+
+a.js-facet-item:hover {
+  text-decoration: none;
+  color: #936A2B;
+}
+
+.facet-group .facet {
+  border: none;
+  width: 96%;
+  margin: 0 2%;
+}
+
+.facet-group .collapse {
+  border-bottom: 1px solid #D2D2D2;
+  background-color: #fff;
+}
+
+.facet-group .collapsed {
+  border: 1px solid #D2D2D2;
+  border-radius: 4px;
+}
+
+.card-results .author span {
+  color: #828282
 }
 
 /* bdtd mobile  */

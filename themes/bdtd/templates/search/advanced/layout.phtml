@@ -101,6 +101,26 @@ if (isset($searchDetails) && is_object($searchDetails)) {
 </div>
 <div class="container">
   <div role="search" class="bottom-search-form adv-search-form">
+
+    <div class="search-form form-disabled">
+      <input disabled data-search="" placeholder="Pesquise por teses e dissertações" id="searchForm_lookfor" class="search-input search-query 
+        autocomplete searcher:Solr ac-auto-submit" type="text" name="lookfor" value="" aria-label="Termos de pesquisa">
+
+      <select disabled id="searchForm_type" class="searchForm_type form-control" name="type" data-native-menu="false" aria-label="Search type">
+        <option value="AllFields">Todos os campos</option>
+        <option value="Title">Título</option>
+        <option value="Author">Autor</option>
+        <option value="Subject">Assunto</option>
+      </select>
+
+      <button disabled type="submit" class="btn contained-primary">
+        Buscar</button>
+      <a href="/bdtd" class="btn outlined-primary" rel="nofollow">
+        <i class="fa fa-plus-circle" aria-hidden="true"></i> Fechar avançada </a>
+
+      <input type="hidden" name="limit" value="20">
+    </div>
+
     <form name="searchForm" id="advSearchForm" method="get" action="<?= $this->url($this->options->getSearchAction()) ?>">
       <?php foreach ($hiddenFilters as $key => $filter) : ?>
         <?php foreach ($filter as $value) : ?>
