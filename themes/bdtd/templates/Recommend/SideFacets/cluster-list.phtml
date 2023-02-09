@@ -1,4 +1,4 @@
-<?php $idAndClass = 'id="more-narrowGroupHidden-' . $this->escapeHtmlAttr($this->title) . '" class="facet narrow-toggle more-facets"'; ?>
+<?php $idAndClass = 'id="more-narrowGroupHidden-' . $this->escapeHtmlAttr($this->title) . '" class="narrow-toggle more-facets btn outlined-primary"'; ?>
 <?php $moreClass = 'narrowGroupHidden-' . $this->escapeHtmlAttr($this->title) . ' hidden'; ?>
 <?php $titleForUrl = str_replace("--", ".", $this->title); ?>
 <?php foreach ($this->cluster['list'] as $i => $thisFacet) : ?>
@@ -41,11 +41,11 @@
       $moreUrl .= '&amp;baseUriExtra=' . urlencode($this->baseUriExtra);
     }
     ?>
-    <a class="facet narrow-toggle <?= $moreClass ?>" data-lightbox href="<?= $moreUrl ?>" rel="nofollow">
+    <a class="narrow-toggle btn outlined-primary <?= $moreClass ?>" data-lightbox href="<?= $moreUrl ?>" rel="nofollow">
       <span class="text"><?= $this->transEsc('see all') ?> ...</span>
     </a>
   <?php endif; ?>
-  <a class="facet narrow-toggle <?= $moreClass ?> less-facets" href="#" data-title="<?= $this->escapeHtmlAttr($this->title) ?>">
+  <a class="narrow-toggle btn outlined-secondary <?= $moreClass ?> less-facets" href="#" data-title="<?= $this->escapeHtmlAttr($this->title) ?>">
     <span class="text"><?= $this->transEsc('less') ?> ...</span>
   </a>
 <?php endif; ?>
