@@ -45,6 +45,9 @@ img {
   padding: 0 32px;
 }
 
+
+
+
 .assinatura {
   display: flex;
   justify-content: center;
@@ -127,6 +130,11 @@ header.navbar {
   align-items: center;
 }
 
+.navbar .container::before,
+.navbar .container::after {
+  content: none;
+}
+
 .logo-img {
   max-height: 50px;
   margin-top: 5px;
@@ -141,9 +149,13 @@ header.navbar {
 /* Ajustes no Menu */
 .nav-main a {
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 600;
   color: #6a6a6a;
   font-size: 1rem;
+}
+
+.nav>li {
+  margin-right: 32px;
 }
 
 .navbar-nav>li>a {
@@ -151,6 +163,11 @@ header.navbar {
   min-height: 96px;
   display: flex;
   align-items: center;
+  font-size: 16px;
+}
+
+.nav .uil-home {
+  font-size: 1.4rem;
 }
 
 .nav>li>a:hover,
@@ -160,6 +177,11 @@ header.navbar {
   background-color: transparent;
   border-bottom: 2px solid #1a5544;
   color: #1A5544;
+}
+
+li.dropdown>a:hover,
+li.dropdown>a:focus {
+  border-bottom: none;
 }
 
 .search-box {
@@ -544,6 +566,23 @@ li.language a {
   margin-right: 1rem;
 }
 
+.searchHomeContent {
+  margin-top: 32px;
+}
+
+
+.dropdown-menu::before {
+  top: -9px;
+  content: '';
+  margin-left: 2px;
+  border-bottom: 10px dashed #fff;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  position: absolute;
+  left: calc(50% - 10px);
+  width: 0;
+}
+
 .btn-collapse:not(.collapsed)::before {
   content: "\f077";
 }
@@ -595,6 +634,7 @@ li.language a {
 
 .result .title {
   text-decoration: none;
+  font-size: 1.1rem;
 }
 
 .result .format {
@@ -811,6 +851,8 @@ a.text-primary:hover {
 .navbar-collapse {
   padding-left: 0;
   padding-right: 0;
+  width: 100%;
+  gap: 1rem;
 }
 
 .flex-row-spaced-between {
@@ -1272,6 +1314,11 @@ input[disabled]:focus {
 
 .dropdown:hover .dropdown-menu {
   display: block;
+  border: none;
+  box-shadow: 0px 0px 54px rgba(130, 130, 130, 0.24);
+  border-top: 2px solid #1a5544;
+  left: -38%;
+  width: 216px;
 }
 
 .dropdown-menu {
@@ -1320,11 +1367,26 @@ a.js-facet-item:hover {
   color: #828282
 }
 
+.navbar-toggle {
+  position: absolute;
+  left: 0;
+}
+
+.logo-bdtd {
+  margin-right: 32px;
+}
+
 /* bdtd mobile  */
 /* ################################################################################  */
 @media (max-width: 768px) {
   .navbar .container {
     width: 100%;
+    flex-direction: column;
+  }
+
+  .logo-ibict {
+    position: absolute;
+    right: 8px;
   }
 
   .navbar-nav>li>a {
@@ -1336,6 +1398,7 @@ a.js-facet-item:hover {
 
   .nav-main {
     flex-direction: column;
+    align-items: flex-start;
   }
 
   .navbar-header {

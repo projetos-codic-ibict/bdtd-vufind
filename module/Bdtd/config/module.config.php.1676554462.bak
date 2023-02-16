@@ -13,7 +13,6 @@ return array (
       'Bdtd\\Controller\\ParticipateController' => 'VuFind\\Controller\\AbstractBaseFactory',
       'Bdtd\\Controller\\TedeController' => 'VuFind\\Controller\\AbstractBaseFactory',
       'Bdtd\\Controller\\ParticipantsController' => 'VuFind\\Controller\\AbstractBaseFactory',
-      'Bdtd\\Controller\\NetworkController' => 'VuFind\\Controller\\AbstractBaseFactory',
     ),
     'aliases' => 
     array (
@@ -33,8 +32,6 @@ return array (
       'tede' => 'Bdtd\\Controller\\TedeController',
       'Participants' => 'Bdtd\\Controller\\ParticipantsController',
       'participants' => 'Bdtd\\Controller\\ParticipantsController',
-      'Network' => 'Bdtd\\Controller\\NetworkController',
-      'network' => 'Bdtd\\Controller\\NetworkController',
     ),
   ),
   'router' => 
@@ -180,19 +177,6 @@ return array (
           'defaults' => 
           array (
             'controller' => 'Participants',
-            'action' => 'Home',
-          ),
-        ),
-      ),
-      'network-home' => 
-      array (
-        'type' => 'Laminas\\Router\\Http\\Literal',
-        'options' => 
-        array (
-          'route' => '/Network/Home',
-          'defaults' => 
-          array (
-            'controller' => 'Network',
             'action' => 'Home',
           ),
         ),

@@ -184,19 +184,6 @@ return array (
           ),
         ),
       ),
-      'network-home' => 
-      array (
-        'type' => 'Laminas\\Router\\Http\\Literal',
-        'options' => 
-        array (
-          'route' => '/Network/Home',
-          'defaults' => 
-          array (
-            'controller' => 'Network',
-            'action' => 'Home',
-          ),
-        ),
-      ),
     ),
   ),
   'vufind' => 
