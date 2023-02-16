@@ -158,6 +158,14 @@ header.navbar {
   margin-right: 32px;
 }
 
+.text-secondary:hover {
+  background-color: transparent;
+}
+
+a.text-secondary:hover {
+  background-color: rgba(var(--color-rgb-secondary-base), 0.2);
+}
+
 .navbar-nav>li>a {
   border-bottom: 2px solid transparent;
   min-height: 96px;
@@ -376,12 +384,11 @@ li.language a {
 }
 
 .networks-total-label {
-  background-color: #f0f0f0;
-  padding: 5px 10px;
-  margin-bottom: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-top: 1px solid #E1E1E1;
+  padding-top: 16px;
 }
 
 #networks .search {
@@ -401,22 +408,44 @@ li.language a {
 
 #networks ol {
   list-style: none;
-  margin-left: 7px;
+  padding: 0;
+}
+
+.sort-select {
+  min-width: 125px;
 }
 
 #networks ol li {
   counter-increment: item;
-  padding: 0 0 0 0;
+  list-style-position: inside;
 }
 
 #networks ol li::marker {
-  content: counter(item) ".";
+  content: counter(item) " |";
+  color: var(--color-hex-secondary-base);
 }
 
-#networks h3 {
-  background-color: #f0f0f0;
-  padding: 0.5rem 0.5rem 0.5rem 2.9rem;
-  margin-left: -2.9rem;
+.network-item {
+  width: 100%;
+  padding: calc(var(--size-base) * 6);
+  border-radius: calc(var(--size-base) * 2);
+  background: var(--color-neutral-50);
+  border: 1px solid var(--color-neutral-400);
+  transition: all 0.2s;
+  margin-bottom: 16px;
+}
+
+.network-item h3 {
+  display: inline-block;
+}
+
+.datasources-header {
+  margin-bottom: 8px;
+}
+
+.network-item h3,
+.network-item p {
+  margin-bottom: 8px;
 }
 
 #dataSource a {
@@ -430,6 +459,7 @@ li.language a {
 
 #networks h3 a:hover {
   text-decoration: underline;
+  color: var(--color-hex-secondary-base);
 }
 
 .networks-item b {
@@ -1334,11 +1364,6 @@ a.js-facet-item {
   text-decoration: none;
 
   border-radius: 4px;
-}
-
-a.js-facet-item:hover {
-  text-decoration: none;
-  color: #936A2B;
 }
 
 .facet-group .facet {

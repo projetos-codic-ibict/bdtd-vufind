@@ -4,28 +4,38 @@
 <?php $this->headLink()->appendStylesheet('loader.css'); ?>
 <?php $this->headScript()->appendFile("lib/list.min.js"); ?>
 <?php $this->headScript()->appendFile("networks.js"); ?>
-
-<div class="logo-img-center">
-  <a href="<?= $this->url('home') ?>"><img src="<?= $this->imageLink('oasisbr.png'); ?>" alt="Logo do OasisBR" /></a>
-</div>
-
-<div class="page-title-bar">
-  <div class="container">
-    <h1><?= $this->transEsc("Data Sources") ?></h1>
-    <h4><?= $this->transEsc("Data Sources Subtitle") ?><h4>
-  </div>
-</div>
+<?php $this->layout()->breadcrumbs .= '<li class="active">' . '' . '</li>'; ?>
 
 <div class="container" id="networks-page">
+
+  <h2 class="text-primary">Instituições participantes</h2>
+  <br />
+  <h4 class="text-secondary">
+    Conheça as instituições participantes da Biblioteca digital Brasileira de Teses e Dissertações (BDTD)
+  </h4>
+  <br /> <br />
+
+  <div id="result" class="search-header hidden-print">
+    <div class="search-stats networks-total-label">
+      <span class="networks-label">
+
+      </span>
+      <button class="btn contained-primary btn-export-csv">
+        <?= $this->transEsc("Export to") ?> CSV
+      </button>
+    </div>
+  </div>
+
+
   <div class="sidebar left hidden-print" id="search-sidebar">
     <div class="facet-group" id="side-panel-format">
       <button class="title" aria-expanded="true">
-        <?= $this->transEsc("Data Sources") ?> </button>
+        Instituições</button>
       <div id="side-collapse-format" class="collapse in" aria-expanded="true">
         <a id="list-all" class="facet js-facet-item facetAND">
           <span class="text">
 
-            <span class="facet-value"><?= $this->transEsc("All sources") ?></span>
+            <span class="facet-value">Todas as instituições</span>
           </span>
           <span class="badge badge-total"> </span>
         </a>
@@ -42,24 +52,14 @@
       <div class="collapse" id="top_topic_facet">
       </div>
     </div>
-    <div id="result" class="search-header hidden-print">
-      <div class="search-stats networks-total-label">
-        <span class="networks-label">
-
-        </span>
-        <button class="btn btn-primary btn-export-csv ">
-          <?= $this->transEsc("Export to") ?> CSV
-        </button>
-      </div>
-    </div>
 
     <div id="networks">
       <div class="loader">Loading...</div>
-      <div class="flex flex-space-between">
+      <div class="flex flex-space-between datasources-header">
         <input class="search form-control" placeholder=<?= $this->transEsc("Search") ?>>
         <div class="networks-sort flex">
           <label for="sort-select"><?= $this->transEsc("Sort") ?></label>
-          <select id="sort-select" class="form-control">
+          <select id="sort-select" class="form-control sort-select">
             <option value="asc"><?= $this->transEsc("Ascending") ?></option>
             <option value="desc"><?= $this->transEsc("Descending") ?></option>
           </select>
