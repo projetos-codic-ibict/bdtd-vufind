@@ -162,6 +162,10 @@ header.navbar {
   background-color: transparent;
 }
 
+.author-data {
+  display: flex;
+}
+
 a.text-secondary:hover {
   background-color: rgba(var(--color-rgb-secondary-base), 0.2);
 }
