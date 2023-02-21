@@ -456,9 +456,20 @@ li.language a {
   text-decoration: none;
 }
 
+.networks {
+  position: relative;
+}
+
+.networks .btn-export-csv {
+  top: 8px;
+  position: absolute;
+  right: 0;
+}
+
 #networks h3 a {
   text-decoration: none;
   margin-left: 5px;
+  color: var(--color-hex-secondary-base);
 }
 
 #networks h3 a:hover {
@@ -1410,12 +1421,24 @@ a.js-facet-item {
   display: block;
 }
 
+
 /* bdtd mobile  */
 /* ################################################################################  */
 @media (max-width: 768px) {
   .navbar .container {
     width: 100%;
     flex-direction: column;
+  }
+
+  .networks .btn-export-csv {
+    top: 0;
+    position: relative;
+    width: 100%;
+  }
+
+  .networks .gridjs-search input,
+  .networks .gridjs-search {
+    width: 100%;
   }
 
   .card-results {

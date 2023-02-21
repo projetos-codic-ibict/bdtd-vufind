@@ -2,11 +2,12 @@
 <?php $this->layout()->searchbox = false; ?>
 <?php $this->layout()->layoutFull = true; ?>
 <?php $this->headLink()->appendStylesheet('loader.css'); ?>
-<?php $this->headScript()->appendFile("lib/list.min.js"); ?>
+<?php $this->headLink()->appendStylesheet('https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css'); ?>
+<?php $this->headScript()->appendFile("https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"); ?>
 <?php $this->headScript()->appendFile("networks.js"); ?>
 <?php $this->layout()->breadcrumbs .= '<li class="active">' . '' . '</li>'; ?>
 
-<div class="container" id="networks-page">
+<div class="container">
 
   <h2 class="text-primary">Instituições participantes</h2>
   <br />
@@ -15,63 +16,10 @@
   </h4>
   <br /> <br />
 
-  <div id="result" class="search-header hidden-print">
-    <div class="search-stats networks-total-label">
-      <span class="networks-label">
-
-      </span>
-      <button class="btn contained-primary btn-export-csv">
-        <?= $this->transEsc("Export to") ?> CSV
-      </button>
-    </div>
+  <div class="networks">
+    <button class="btn contained-primary btn-export-csv">
+      <?= $this->transEsc("Export to") ?> CSV
+    </button>
+    <div id="networksWrapper"></div>
   </div>
-
-
-  <div class="sidebar left hidden-print" id="search-sidebar">
-    <div class="facet-group" id="side-panel-format">
-      <button class="title" aria-expanded="true">
-        Instituições</button>
-      <div id="side-collapse-format" class="collapse in" aria-expanded="true">
-        <a id="list-all" class="facet js-facet-item facetAND">
-          <span class="text">
-
-            <span class="facet-value">Todas as instituições</span>
-          </span>
-          <span class="badge badge-total"> </span>
-        </a>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="mainbody right">
-    <div class="top-facets">
-      <!--Toggle for mobile collapse -->
-      <a class="top-title js-toggle visible-xs" data-toggle="collapse" data-target="#top_topic_facet"><i class="fa fa-caret-right"></i> Sugestões de Tópicos dentro de sua ...</a>
-      <!--Regular title for non-mobile -->
-      <div class="collapse" id="top_topic_facet">
-      </div>
-    </div>
-
-    <div id="networks">
-      <div class="loader">Loading...</div>
-      <div class="flex flex-space-between datasources-header">
-        <input class="search form-control" placeholder=<?= $this->transEsc("Search") ?>>
-        <div class="networks-sort flex">
-          <label for="sort-select"><?= $this->transEsc("Sort") ?></label>
-          <select id="sort-select" class="form-control sort-select">
-            <option value="asc"><?= $this->transEsc("Ascending") ?></option>
-            <option value="desc"><?= $this->transEsc("Descending") ?></option>
-          </select>
-        </div>
-      </div>
-
-      <ol class="list" style="counter-reset: item 0">
-      </ol>
-
-      <ul class="pagination"></ul>
-    </div>
-  </div>
-
-
 </div>
