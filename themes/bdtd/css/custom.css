@@ -716,6 +716,7 @@ td span.format {
   display: flex;
   margin: 0;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 
@@ -1405,12 +1406,28 @@ a.js-facet-item {
   margin-right: 32px;
 }
 
+.result .record-number {
+  display: block;
+}
+
 /* bdtd mobile  */
 /* ################################################################################  */
 @media (max-width: 768px) {
   .navbar .container {
     width: 100%;
     flex-direction: column;
+  }
+
+  .card-results {
+    padding: 8px;
+  }
+
+  .search-header {
+    flex-direction: column;
+  }
+
+  .pagination {
+    margin-bottom: 16px;
   }
 
   .logo-ibict {

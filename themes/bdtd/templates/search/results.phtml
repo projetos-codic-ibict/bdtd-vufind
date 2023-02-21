@@ -55,9 +55,9 @@ if ($this->params->getOptions()->getListViewOption() !== 'full') {
     <div class="search-stats">
       <?php if ($recordTotal > 0) : ?>
         <?= $this->context()->renderInContext('search/controls/showing.phtml', ['lookfor' => $lookfor, 'recordTotal' => $recordTotal]) ?>
-        <a class="search-filter-toggle visible-xs" href="#search-sidebar" data-toggle="offcanvas" title="<?= $this->transEscAttr('sidebar_expand') ?>">
+        <!-- <a class="search-filter-toggle visible-xs" href="#search-sidebar" data-toggle="offcanvas" title="<?= $this->transEscAttr('sidebar_expand') ?>">
           <?= $this->transEsc('Refine Results') ?>
-        </a>
+        </a> -->
       <?php else : ?>
         <h2><?= $this->transEsc('nohit_heading') ?></h2>
       <?php endif; ?>
@@ -107,8 +107,8 @@ if ($this->params->getOptions()->getListViewOption() !== 'full') {
     <?= $this->render('search/list-' . $this->params->getView() . '.phtml') ?>
     <?= $this->context($this)->renderInContext('search/bulk-action-buttons.phtml', ['idPrefix' => 'bottom_', 'formAttr' => 'search-cart-form']) ?>
 
-      <?= $this->paginationControl($this->results->getPaginator(), 'Sliding', 'search/pagination.phtml', ['results' => $this->results, 'options' => $this->paginationOptions ?? []]) ?>
-      <!-- <?= $this->context($this)->renderInContext('search/controls/results-tools.phtml', ['results' => $this->results]) ?> -->
+    <?= $this->paginationControl($this->results->getPaginator(), 'Sliding', 'search/pagination.phtml', ['results' => $this->results, 'options' => $this->paginationOptions ?? []]) ?>
+    <!-- <?= $this->context($this)->renderInContext('search/controls/results-tools.phtml', ['results' => $this->results]) ?> -->
   <?php endif; ?>
 </div>
 <?php /* End Main Listing */ ?>
