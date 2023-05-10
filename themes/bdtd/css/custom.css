@@ -1210,6 +1210,10 @@ input[disabled]:focus {
   justify-content: space-between;
 }
 
+.partners a {
+  text-decoration: none;
+}
+
 .partners .partner {
   width: 20%;
   border-radius: 8px;

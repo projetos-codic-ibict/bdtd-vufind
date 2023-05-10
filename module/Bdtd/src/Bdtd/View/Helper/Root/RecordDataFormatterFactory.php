@@ -160,6 +160,9 @@ class RecordDataFormatterFactory extends \VuFind\View\Helper\Root\RecordDataForm
             'RecordHelper',
             ['helperMethod' => 'getFormatList']
         );
+
+        $spec->setLine('Access Type', 'getAccessType');
+
         $spec->setLine('Language', 'getLanguages');
 
         $spec->setTemplateLine(

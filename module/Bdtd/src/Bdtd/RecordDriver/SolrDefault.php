@@ -314,6 +314,11 @@ class SolrDefault extends \VuFind\RecordDriver\SolrDefault
     return  $this->getPublicationDetailsByPublishers($this->getFieldsValues(['dc.publisher.program.fl_str_mv']));
   }
 
+  public function getAccessType()
+  {
+    return  $this->getPublicationDetailsByPublishers($this->getFieldsValues(['eu_rights_str_mv']));
+  }
+
   public function getDepartmentPublishers()
   {
     return $this->getPublicationDetailsByPublishers($this->getFieldsValues(['dc.publisher.department.fl_str_mv']));
