@@ -14,7 +14,6 @@ return array(
       'Bdtd\\Controller\\TedeController' => 'VuFind\\Controller\\AbstractBaseFactory',
       'Bdtd\\Controller\\ParticipantsController' => 'VuFind\\Controller\\AbstractBaseFactory',
       'Bdtd\\Controller\\NetworkController' => 'VuFind\\Controller\\AbstractBaseFactory',
-      'Bdtd\\Controller\\DiretrizesController' => 'VuFind\\Controller\\AbstractBaseFactory',
     ),
     'aliases' =>
     array(
@@ -36,8 +35,6 @@ return array(
       'participants' => 'Bdtd\\Controller\\ParticipantsController',
       'Network' => 'Bdtd\\Controller\\NetworkController',
       'network' => 'Bdtd\\Controller\\NetworkController',
-      'Diretrizes' => 'Bdtd\\Controller\\DiretrizesController',
-      'diretrizes' => 'Bdtd\\Controller\\DiretrizesController',
     ),
   ),
   'router' =>
@@ -196,19 +193,6 @@ return array(
           'defaults' =>
           array(
             'controller' => 'Network',
-            'action' => 'Home',
-          ),
-        ),
-      ),
-      'diretrizes-home' =>
-      array(
-        'type' => 'Laminas\\Router\\Http\\Literal',
-        'options' =>
-        array(
-          'route' => '/Diretrizes/Home',
-          'defaults' =>
-          array(
-            'controller' => 'Diretrizes',
             'action' => 'Home',
           ),
         ),
