@@ -23,9 +23,10 @@ class RecordDataFormatterFactory extends \VuFind\View\Helper\Root\RecordDataForm
             ['recordLink' => 'title']
         );
 
-        $spec->setLine(
+        $spec->setTemplateLine(
             'Access Level',
-            'getAccessLevel'
+            'getAccessLevel',
+            'access-level.phtml'
         );
 
         $spec->setLine(
@@ -161,7 +162,7 @@ class RecordDataFormatterFactory extends \VuFind\View\Helper\Root\RecordDataForm
             ['helperMethod' => 'getFormatList']
         );
 
-        $spec->setLine('Access Type', 'getAccessType');
+        $spec->setTemplateLine('Access type', 'getAccessType',  'access-level.phtml');
 
         $spec->setLine('Language', 'getLanguages');
 
@@ -195,23 +196,24 @@ class RecordDataFormatterFactory extends \VuFind\View\Helper\Root\RecordDataForm
         );
 
         /* novos campos */
-        $spec->setTemplateLine(
-            'Program ID',
-            'getprogramIDPublishers',
-            'data-publicationDetails.phtml'
-        );
+        // campos retirados conforme solicitação: https://trello.com/c/XkTIQyHR/25-retirar-campos-do-formul%C3%A1rio-de-registro
+        // $spec->setTemplateLine(
+        //     'Program ID',
+        //     'getprogramIDPublishers',
+        //     'data-publicationDetails.phtml'
+        // );
 
-        $spec->setTemplateLine(
-            'Área de Avaliação',
-            'getareaavaliacaoPublishers',
-            'data-publicationDetails.phtml'
-        );
+        // $spec->setTemplateLine(
+        //     'Área de Avaliação',
+        //     'getareaavaliacaoPublishers',
+        //     'data-publicationDetails.phtml'
+        // );
 
-        $spec->setTemplateLine(
-            'Grande Área',
-            'getgrandeareaPublishers',
-            'data-publicationDetails.phtml'
-        );
+        // $spec->setTemplateLine(
+        //     'Grande Área',
+        //     'getgrandeareaPublishers',
+        //     'data-publicationDetails.phtml'
+        // );
 
         /* Fim novos campos */
 
@@ -242,7 +244,7 @@ class RecordDataFormatterFactory extends \VuFind\View\Helper\Root\RecordDataForm
         );
 
         $spec->setTemplateLine(
-            'CNPQ Subjects',
+            'CNPq Subject',
             'getCNPQSubjects',
             'data-allSubjectHeadings.phtml'
         );
