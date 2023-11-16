@@ -48,7 +48,9 @@
 
             <p>Contate-nos pelo email: <b>equipebdtd@ibict.br</b></p>
 
-            <p>Link para o modelo de ofício.</p>
+            <p> <a href="/vufind/MODELO-DE-OFICIO.docx" target="_blank" rel="noopener noreferrer">
+                Link para o modelo de ofício</a>.
+            </p>
           </div>
         </div>
         <div class="card">
@@ -86,7 +88,7 @@
         <br />
         <p><b>Não encontrou o que procurava?</b></p>
         <p>Entre em contato com a nossa equipe e faremos o possível para te ajudar.</p>
-        <a class="btn contained-primary fit-content" href="mailto:equipebdtd@ibict.br">Suporte</a>
+        <a class="btn contained-primary fit-content" id="feedbackFaq" data-lightbox href="<?= $this->url('feedback-home') ?>"><?= $this->transEsc("Suporte") ?></a>
       </div>
     </div>
   </div>
