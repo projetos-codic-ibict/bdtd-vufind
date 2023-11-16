@@ -597,21 +597,26 @@ li.language a {
 
 .btn-collapse {
   text-decoration: none;
-  color: #808080;
+  color: var(--color-hex-secondary-base);
+  font-weight: 500;
+}
+
+.fit-content {
+  width: fit-content;
 }
 
 .btn-collapse:hover,
 .btn-collapse:focus {
   text-decoration: none;
   outline: none;
-  color: #808080;
+  color: var(--color-hex-secondary-base);
 }
 
 .btn-collapse::before {
   font-family: FontAwesome;
   font-size: 1.5rem;
-  content: "\f078";
-  color: #67b471;
+  content: "\f055";
+  color: var(--color-hex-primary-base);
   margin-right: 1rem;
 }
 
@@ -633,7 +638,7 @@ li.language a {
 }
 
 .btn-collapse:not(.collapsed)::before {
-  content: "\f077";
+  content: "\f056";
 }
 
 .card-results {
@@ -878,9 +883,6 @@ td span.format {
   cursor: pointer;
 }
 
-.faq .card div {
-  padding-left: 3rem;
-}
 
 /* #################################################################################? */
 /* bdtd  */
@@ -1428,6 +1430,16 @@ a.js-facet-item {
   display: block;
 }
 
+.faq .card {
+  border: 1px solid var(--color-hex-secondary-base);
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.faq .card div {
+  margin-top: 16px;
+}
 
 /* bdtd mobile  */
 /* ################################################################################  */
