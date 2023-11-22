@@ -998,6 +998,15 @@ a.btn {
   gap: 16px;
 }
 
+.search-info a {
+  text-decoration: none;
+
+}
+
+.search-info a p {
+  color: #333
+}
+
 .bottom-search-form {
   margin-top: -70px;
 }
@@ -1263,6 +1272,10 @@ input[disabled]:focus {
 
 .fulltext p {
   margin-bottom: 1rem;
+}
+
+.fulltext li {
+  margin-bottom: 8px;
 }
 
 .partner div {

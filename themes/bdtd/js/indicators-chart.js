@@ -19,7 +19,7 @@ async function createChartByYear(data) {
     data: {
       values: values,
     },
-    mark: { type: 'bar', tooltip: true },
+    mark: { type: 'bar', tooltip: true, color: '#008e67' },
     width: 460,
     // height: 250,
     encoding: {
@@ -96,7 +96,7 @@ async function createChartByInstitution(data) {
     data: {
       values: values,
     },
-    mark: { type: 'bar', tooltip: true },
+    mark: { type: 'bar', tooltip: true, color: '#008e67' },
     width: 460,
     labelFontSize: 14,
     encoding: {
@@ -174,7 +174,7 @@ async function createChartByAuthor(data) {
     data: {
       values: values,
     },
-    mark: { type: 'bar' },
+    mark: { type: 'bar', color: '#008e67' },
     width: 460,
     // height: 250,
     labelFontSize: 14,
@@ -220,7 +220,7 @@ async function createChartByAdvisors(data) {
     data: {
       values: values,
     },
-    mark: { type: 'bar' },
+    mark: { type: 'bar', color: '#008e67' },
     width: 460,
     // height: 250,
     transform: [
@@ -330,7 +330,7 @@ async function createChartByPpg(data) {
     data: {
       values: values,
     },
-    mark: { type: 'bar', tooltip: true },
+    mark: { type: 'bar', tooltip: true, color: '#008e67' },
     width: 460,
     labelFontSize: 14,
     encoding: {
@@ -412,7 +412,7 @@ async function createChartByCnpq(data) {
     data: {
       values: values,
     },
-    mark: { type: 'bar', tooltip: true },
+    mark: { type: 'bar', tooltip: true, color: '#008e67' },
     width: 460,
     // height: 250,
     labelFontSize: 14,
