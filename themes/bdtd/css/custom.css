@@ -1172,10 +1172,6 @@ a.btn {
   text-transform: uppercase;
 }
 
-.search-info p {
-  text-transform: lowercase;
-}
-
 
 .search-form {
   display: flex;
