@@ -4,12 +4,12 @@ const INDICATORS_FACETS =
 let API_BASE_URL;
 let REMOTE_API_URL = 'https://api-oasisbr.ibict.br/api/v1';
 
-if (window.location.hostname === 'bdtd.ibict.br') {
+if (
+  window.location.hostname === 'bdtd.ibict.br' ||
+  window.location.hostname === 'bdtdh.ibict.br'
+) {
   API_BASE_URL = `https://${window.location.host}/bdtd/api/v1`;
   REMOTE_API_URL = `https://api-oasisbr.ibict.br/api/v1`;
-} else if (window.location.hostname === 'bdtdh.ibict.br') {
-  API_BASE_URL = `https://${window.location.host}/bdtd/api/v1`;
-  REMOTE_API_URL = `http://200.130.0.112:3000/api/v1`;
 } else {
   API_BASE_URL = `http://${window.location.host}/bdtd/api/v1`;
   REMOTE_API_URL = `http://${window.location.host}:3000/api/v1`;
