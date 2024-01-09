@@ -8,10 +8,14 @@ if (
   window.location.hostname === 'bdtd.ibict.br' ||
   window.location.hostname === 'bdtdh.ibict.br'
 ) {
-  API_BASE_URL = `https://${window.location.host}${window.location.pathname}api/v1`;
+  API_BASE_URL = `https://${window.location.host}/${
+    window.location.pathname.split('/')[1]
+  }api/v1`;
   REMOTE_API_URL = `https://api-oasisbr.ibict.br/api/v1`;
 } else {
-  API_BASE_URL = `http://${window.location.host}${window.location.pathname}api/v1`;
+  API_BASE_URL = `http://${window.location.host}/${
+    window.location.pathname.split('/')[1]
+  }api/v1`;
   REMOTE_API_URL = `http://${window.location.host}:3000/api/v1`;
 }
 
