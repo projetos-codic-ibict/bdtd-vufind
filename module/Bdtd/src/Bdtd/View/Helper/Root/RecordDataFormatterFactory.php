@@ -23,11 +23,13 @@ class RecordDataFormatterFactory extends \VuFind\View\Helper\Root\RecordDataForm
             ['recordLink' => 'title']
         );
 
-        $spec->setTemplateLine(
-            'Access Level',
-            'getAccessLevel',
-            'access-level.phtml'
-        );
+        // Nos dados do registro retirar o campo “nível de acesso”: https://trello.com/c/OybnzERq/37-altera%C3%A7%C3%B5es-gerais-na-p%C3%A1gina-da-bdtd
+
+        // $spec->setTemplateLine(
+        //     'Access Level',
+        //     'getAccessLevel',
+        //     'access-level.phtml'
+        // );
 
         $spec->setLine(
             'Previous Title',
