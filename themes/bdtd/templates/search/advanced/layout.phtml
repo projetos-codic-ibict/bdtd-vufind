@@ -71,10 +71,10 @@ if (isset($searchDetails) && is_object($searchDetails)) {
     <div class="indicators text-primary">
       <div class="item">
         <i class="fa fa-university"></i>
-        <div class="data">
+        <a href="<?= $this->url('datasources-home') ?>" class="data">
           <span id="institution" class="main-highlight">000</span>
           <span>Instituições</span>
-        </div>
+        </a>
       </div>
       <div class="item"> <i class="fa fa-book"></i>
         <a href="Search/Results?limit=0&lookfor=%2A%3A%2A&type=AllFields&filter%5B%5D=format%3A%22doctoralThesis%22" class="data">
