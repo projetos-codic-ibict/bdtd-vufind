@@ -26,7 +26,7 @@ $this->layout()->layoutFull = true;
     <div class="indicators text-primary">
       <div class="item">
         <i class="uil uil-university"></i>
-        <a href="<?= $this->url('datasources-home') ?>">
+        <a href="<?= $this->url('datasources-home') ?>" class="data">
           <span id="institution" class="main-highlight">000</span>
           <span>Instituições</span>
         </a>
@@ -62,7 +62,7 @@ $this->layout()->layoutFull = true;
 </div>
 <div class="container">
   <div class="search-info bottom-search-form">
-    <a class="item" href="participate">
+    <a class="item" href="<?= $this->url('participate-home') ?>">
       <div class="text-primary flex-row-spaced-between">
         <h4 class="main-highlight">
           Participe
@@ -71,7 +71,7 @@ $this->layout()->layoutFull = true;
       </div>
       <p>Faça parte da BDTD e contribua com a disseminação das teses e dissertações produzidas por pesquisadores brasileiros.</p>
     </a>
-    <a class="item" href="technology">
+    <a class="item" href="<?= $this->url('technology-home') ?>">
       <div class="text-primary flex-row-spaced-between">
         <h4 class="main-highlight">
           Tecnologia
@@ -80,14 +80,14 @@ $this->layout()->layoutFull = true;
       </div>
       <p>Em concordância com os preceitos da Ciência Aberta, toda a tecnologia utilizada para o funcionamento da BDTD são de código livre.</p>
     </a>
-    <a class="item" href="indicators">
+    <a class="item" href="<?= $this->url('indicators-home') ?>">
       <div class="text-primary flex-row-spaced-between">
         <h4 class="main-highlight">
           Indicadores
         </h4>
         <i class="uil uil-chart-line"></i>
       </div>
-      <p>Acesse alguns indicadores quantitativos relativos às teses e dissertações no Brasil.</p>
+      <p> Acesse alguns indicadores quantitativos relativos às teses e dissertações no Brasil.</p>
     </a>
   </div>
 </div>
