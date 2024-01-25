@@ -1,0 +1,10 @@
+[Unit]
+Description=Apaga diretórios diariamente
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bdtd-vufind/scripts/delete_files.sh
+
+[Install]
+WantedBy=multi-user.target
+
