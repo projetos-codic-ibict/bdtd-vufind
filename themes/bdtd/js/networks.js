@@ -92,7 +92,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       network.name,
       network.institution || '-',
       gridjs.html(
-        `<a href='../Search/Results?${network.name}'>${network.validSize}</a>`
+        `<a href="../Search/Results?type=AllFields&filter%5B%5D=network_name_str%3A%22+${network.name
+        }>${network.validSize}</a>`
       ),
     ]),
   }).render(document.getElementById("networksWrapper"));
