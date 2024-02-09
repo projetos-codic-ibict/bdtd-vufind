@@ -1,7 +1,7 @@
 async function getAllNetworks() {
   try {
     showLoader();
-    const response = await axios.get(`${REMOTE_API_URL}/networks`);
+    const response = await axios.get(`${REMOTE_API_URL}/networks?sourceType=Biblioteca Digital de Teses e Dissertações`);
     hideLoader();
     const networks = response.data;
     return networks;
@@ -27,29 +27,28 @@ async function getNetworks() {
   }
 }
 
-function exportsCSV(networks, allNetworks) {
+function exportsCSV(allNetworks) {
   const btnExport = document.querySelector(".btn-export-csv");
   btnExport.addEventListener("click", () => {
     let csvContent = "data:text/csv;charset=utf-8,";
 
     // Convert JSON to CSV & Display CSV
-    csvContent = csvContent + ConvertToCSV(networks, allNetworks);
+    csvContent = csvContent + ConvertToCSV(allNetworks);
     const encodedUri = encodeURI(csvContent);
     window.open(encodedUri);
   });
 }
 
-function ConvertToCSV(objArray, allNetworks) {
-  const array = typeof objArray !== "object" ? JSON.parse(objArray) : objArray;
+function ConvertToCSV(allNetworks) {
   let csv = "Biblioteca,Instituição,Quantidade de itens";
   csv += "\r\n";
-  array.forEach((item) => {
+  allNetworks.forEach((item) => {
     let line =
-      `"${allNetworks.find((n) => n.acronym === item.value).name || ""}"` +
+      `"${item.name || ""}"` +
       "," +
-      `"${item.value}"` +
+      `"${item.institution}"` +
       "," +
-      item.count;
+      item.validSize;
     line = line.replaceAll("#", "%23");
     csv += line + "\r\n";
   });
@@ -58,7 +57,6 @@ function ConvertToCSV(objArray, allNetworks) {
 
 document.addEventListener("DOMContentLoaded", async () => {
   const allNetworks = await getAllNetworks();
-  const networks = await getNetworks();
   new gridjs.Grid({
     columns: [
       {
@@ -90,13 +88,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         results: () => "Resultado",
       },
     },
-    data: networks.map((network) => [
-      allNetworks.find((n) => n.acronym === network.value).name || "",
-      network.value,
+    data: allNetworks.map((network) => [
+      network.name,
+      network.institution || '---',
       gridjs.html(
-        `<a href='../Search/Results?${network.href}'>${network.count}</a>`
+        `<a href='../Search/Results?${network.sourceUrl}'>${network.validSize}</a>`
       ),
     ]),
   }).render(document.getElementById("networksWrapper"));
-  exportsCSV(networks, allNetworks);
+  exportsCSV(allNetworks);
 });
