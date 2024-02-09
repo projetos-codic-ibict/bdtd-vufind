@@ -90,9 +90,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     },
     data: allNetworks.map((network) => [
       network.name,
-      network.institution || '---',
+      network.institution || '-',
       gridjs.html(
-        `<a href='../Search/Results?${network.sourceUrl}'>${network.validSize}</a>`
+        `<a href='../Search/Results?${network.name}'>${network.validSize}</a>`
       ),
     ]),
   }).render(document.getElementById("networksWrapper"));
