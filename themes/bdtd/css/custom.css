@@ -11,6 +11,11 @@ img {
   max-height: 100%;
 }
 
+.btn-export{
+  height: auto; 
+  padding: 4px 8px;
+}
+
 @media (min-width: 768px) {
   .sidebar {
     width: 30%;

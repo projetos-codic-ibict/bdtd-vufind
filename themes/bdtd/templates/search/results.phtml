@@ -70,7 +70,7 @@ if ($this->params->getOptions()->getListViewOption() !== 'full') {
         <?= $this->render('search/controls/view.phtml') ?>
       </div>
     <?php endif; ?>
-    <a class="btn outlined-primary" href="<?= $this->url('bulkexport-home') . '?total=' . $recordTotal ?>" data-lightbox>
+    <a class="btn outlined-primary btn-export" href="<?= $this->url('bulkexport-home') . '?total=' . $recordTotal ?>" data-lightbox>
       <?= $this->transEsc('Export CSV') ?> <i class="fa fa-file-excel-o" aria-hidden="true"></i>
     </a>
   </div>
