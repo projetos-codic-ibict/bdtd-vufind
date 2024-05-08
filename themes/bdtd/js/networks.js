@@ -1,10 +1,11 @@
-async function getAllNetworks() {
+async function getAllInstitutions() {
   try {
     showLoader();
-    const response = await axios.get(`${REMOTE_API_URL}/networks?sourceType=Biblioteca Digital de Teses e Dissertações`);
+    const data = await getIndicatorsBy(
+      "search?type=AllFields&facet[]=institution&sort=relevance&page=1&limit=0"
+    );
     hideLoader();
-    const networks = response.data;
-    return networks;
+    return data.facets.institution;
   } catch (errors) {
     hideLoader();
     showMessageError("#networks-page");
@@ -56,13 +57,9 @@ function ConvertToCSV(allNetworks) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const allNetworks = await getAllNetworks();
+  const allInstitutions = await getAllInstitutions();
   new gridjs.Grid({
     columns: [
-      {
-        name: "Biblioteca",
-        sort: true,
-      },
       {
         name: "Instituição",
         sort: true,
@@ -88,11 +85,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         results: () => "Resultado",
       },
     },
-    data: allNetworks.map((network) => [
-      network.name,
-      network.institution || '-',
+    data: allInstitutions.map((institution) => [
+      institution.value,
       gridjs.html(
-        `<a href='../Search/Results?type=AllFields&filter%5B%5D=network_name_str%3A%22+${network.name}'>${network.validSize}</a>`
+        `<a href='../Search/Results${institution.href}'>${institution.count}</a>`
       ),
     ]),
   }).render(document.getElementById("networksWrapper"));
