@@ -1,6 +1,6 @@
 async function getIndicatorsByType() {
   const data = await getIndicatorsBy(
-    "search?type=AllFields&facet[]=format&facet[]=institution&sort=relevance&page=1&limit=0"
+    "search?type=AllFields&facet[]=format&facet[]=instname_str&sort=relevance&page=1&limit=0"
   );
   return data;
 }
@@ -41,7 +41,7 @@ function getDoctorThesisCount(formats) {
 
 document.addEventListener("DOMContentLoaded", async () => {
   const data = await getIndicatorsByType();
-  fillInstitution(data.facets.institution);
+  fillInstitution(data.facets.instname_str);
   const masterThesisCount = getMasterThesisCount(data.facets.format);
   console.log("masterThesisCount", masterThesisCount);
   fillMasterThesis(masterThesisCount);
