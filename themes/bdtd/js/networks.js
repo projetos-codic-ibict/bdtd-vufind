@@ -2,10 +2,10 @@ async function getAllInstitutions() {
   try {
     showLoader();
     const data = await getIndicatorsBy(
-      "search?type=AllFields&facet[]=institution&sort=relevance&page=1&limit=0"
+      "search?type=AllFields&facet[]=instname_str&sort=relevance&page=1&limit=0"
     );
     hideLoader();
-    return data.facets.institution;
+    return data.facets.instname_str;
   } catch (errors) {
     hideLoader();
     showMessageError("#networks-page");
