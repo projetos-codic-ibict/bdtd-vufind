@@ -70,9 +70,26 @@ if ($this->params->getOptions()->getListViewOption() !== 'full') {
         <?= $this->render('search/controls/view.phtml') ?>
       </div>
     <?php endif; ?>
-    <a class="btn outlined-primary btn-export" href="<?= $this->url('bulkexport-home') . '?total=' . $recordTotal ?>" data-lightbox>
-      <?= $this->transEsc('Export CSV') ?> <i class="fa fa-file-excel-o" aria-hidden="true"></i>
-    </a>
+    <div class="btn-group">
+      <button class="btn btn-lg dropdown-toggle" style="width: 150px;border: 2px solid var(--color-hex-primary-base);
+    color: var(--color-hex-primary-base); " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Exportação
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li style="border-bottom: 2px solid #000;">
+          <a class="btn" href="<?= $this->url('bulkexport-home') . '?total=' . $recordTotal ?>" data-lightbox>
+          <?= $this->transEsc('Export CSV') ?> 
+            <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+          </a>
+        </li>
+          <li>
+            <a class="btn" style="display: flex; justify-content: center;" href="<?= $this->url('bulkexport-home') . '?total=' . $recordTotal . '?type=ris' ?>" data-lightbox>
+            <?= $this->transEsc('Export RIS') ?>
+               <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+            </a>
+          </li>
+      </div>
+
   </div>
   <?php /* End Listing Options */ ?>
 </div>

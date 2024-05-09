@@ -123,11 +123,16 @@ class BulkExportController extends \VuFind\Controller\AbstractBase
 			$paramString .= '&encoding=' . $encoding;
 
 			// Checks whether an export file generated from this query already exists
-			$fileExists = $this->callExportService($auxServUrl, $paramString, null, null, null, null);
-
+			
 			$maxTotal = $exportConfig->Query->maxDownload;
 			$queryLimit = $exportConfig->Query->rows;
-			$totalRecords = $this->params()->fromQuery('total');
+
+			$paramStringType = $this->params()->fromQuery('total');
+			$paramString .= '&paramStringType='. $paramStringType;
+			$fileExists = $this->callExportService($auxServUrl, $paramString, null, null, null, null);
+			$totalRecordsArray = explode('?', $paramStringType);
+			$totalRecordsString = $totalRecordsArray[0];
+			$totalRecords = intval($totalRecordsString);
 			$totalRecords = $totalRecords < $queryLimit ? $totalRecords : $queryLimit;
 
 			if (($totalRecords <= $maxTotal) or ($fileExists == 'true')) {
