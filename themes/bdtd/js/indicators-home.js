@@ -1,6 +1,6 @@
 async function getIndicatorsByType() {
   const data = await getIndicatorsBy(
-    "search?type=AllFields&facet[]=format&facet[]=institution&sort=relevance&page=1&limit=0"
+    "search?type=AllFields&facet[]=format&facet[]=institution&sort=releveance&page=1&limit=0"
   );
   return data;
 }
