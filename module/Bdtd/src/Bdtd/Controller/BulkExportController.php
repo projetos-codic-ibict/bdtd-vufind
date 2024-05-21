@@ -27,6 +27,7 @@ class BulkExportController extends \VuFind\Controller\AbstractBase
 	{
 		// Get the number of records returned in the search
 		$totalRecords = $this->params()->fromQuery('total');
+		$type = $this->params()->fromQuery('type');
 
 		// Get the query options
 		$exportConfig = $this->getConf($this->bulkExportConf);
@@ -42,6 +43,7 @@ class BulkExportController extends \VuFind\Controller\AbstractBase
 		return $this->createViewModel([
 			'form' => $form,
 			'total' => $totalRecords,
+			'type' => $type,
 			'foreignAbstract' => $useForeignAbstract,
 			'optionalFields' => $showOptionalFields,
 			'defFields' => $defaultFields,
@@ -127,20 +129,15 @@ class BulkExportController extends \VuFind\Controller\AbstractBase
 			$maxTotal = $exportConfig->Query->maxDownload;
 			$queryLimit = $exportConfig->Query->rows;
 
-			$paramStringType = $this->params()->fromQuery('total');
+			$totalRecords = $this->params()->fromQuery('total');
 			$type = $this->params()->fromQuery('type');
-			//$paramString .= '&paramStringType='. $type;
-			$totalRecordsArray = explode('?', $paramStringType);
-			$typeArray = explode('=', $totalRecordsArray[1]);
-			//$type = $typeArray[1];
-			$fileExists = $this->callExportService($auxServUrl, $paramString, $type, null, null, null, null);
-			$totalRecordsString = $totalRecordsArray[0];
-			$totalRecords = intval($totalRecordsString);
+			$fileExists = $this->callExportService($auxServUrl, $totalRecords, $type, null, null, null, null);
+			$totalRecords = intval($totalRecords);
 			$totalRecords = $totalRecords < $queryLimit ? $totalRecords : $queryLimit;
 
-			if (($totalRecords <= 2) or ($fileExists == 'true')) {
+			if (($totalRecords <= $maxTotal) or ($fileExists == 'true')) {
 				// Immediate file download
-				$response = $this->callExportService($serviceUrl, $paramString, $type, $totalRecords, $hasAbstract, $encoding, $email);
+				$response = $this->callExportService($serviceUrl, $totalRecords, $type, $totalRecords, $hasAbstract, $encoding, $email);
 
 				// After export file is ready, show download window
 				$downloadUrl = $serverUrlHelper($urlHelper('bulkexport-download')) . '?url=' . $response;
