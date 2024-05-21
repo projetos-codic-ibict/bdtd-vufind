@@ -77,13 +77,13 @@ if ($this->params->getOptions()->getListViewOption() !== 'full') {
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <li style="border-bottom: 1px solid #ccc;">
-          <a class="btn" href="<?= $this->url('bulkexport-home') . '?total=' . $recordTotal ?>" data-lightbox>
+          <a class="btn" href="<?= $this->url('bulkexport-home') . '?total=' . $recordTotal . '&type=csv'?>" data-lightbox>
             <?= $this->transEsc('Export CSV') ?>
             <i class="fa fa-file-excel-o" aria-hidden="true"></i>
           </a>
         </li>
         <li>
-          <a class="btn" style="display: flex; justify-content: center;" href="<?= $this->url('bulkexport-home') . '?total=' . $recordTotal . '?type=ris' ?>" data-lightbox>
+          <a class="btn" style="display: flex; justify-content: center;" href="<?= $this->url('bulkexport-home') . '?total=' . $recordTotal . '&type=ris' ?>" data-lightbox>
             <?= $this->transEsc('Export RIS') ?>
             <i class="fa fa-file-excel-o" aria-hidden="true"></i>
           </a>

@@ -128,16 +128,19 @@ class BulkExportController extends \VuFind\Controller\AbstractBase
 			$queryLimit = $exportConfig->Query->rows;
 
 			$paramStringType = $this->params()->fromQuery('total');
-			$paramString .= '&paramStringType='. $paramStringType;
-			$fileExists = $this->callExportService($auxServUrl, $paramString, null, null, null, null);
+			$type = $this->params()->fromQuery('type');
+			//$paramString .= '&paramStringType='. $type;
 			$totalRecordsArray = explode('?', $paramStringType);
+			$typeArray = explode('=', $totalRecordsArray[1]);
+			//$type = $typeArray[1];
+			$fileExists = $this->callExportService($auxServUrl, $paramString, $type, null, null, null, null);
 			$totalRecordsString = $totalRecordsArray[0];
 			$totalRecords = intval($totalRecordsString);
 			$totalRecords = $totalRecords < $queryLimit ? $totalRecords : $queryLimit;
 
-			if (($totalRecords <= $maxTotal) or ($fileExists == 'true')) {
+			if (($totalRecords <= 2) or ($fileExists == 'true')) {
 				// Immediate file download
-				$response = $this->callExportService($serviceUrl, $paramString, $totalRecords, $hasAbstract, $encoding, $email);
+				$response = $this->callExportService($serviceUrl, $paramString, $type, $totalRecords, $hasAbstract, $encoding, $email);
 
 				// After export file is ready, show download window
 				$downloadUrl = $serverUrlHelper($urlHelper('bulkexport-download')) . '?url=' . $response;
@@ -149,7 +152,7 @@ class BulkExportController extends \VuFind\Controller\AbstractBase
 				$backgroundCall = $exportConfig->Service->backgroundClass;
 
 				// Call the export service in background
-				$params = '"' . $email . '|' . $serviceUrl . '|' . $paramString . '|' . $totalRecords . '|' .  $hasAbstract . '|' . $encoding . '"';
+				$params = '"' . $email . '|' . $serviceUrl . '|' . $paramString . '|' . $totalRecords . '|' .  $hasAbstract . '|' . $encoding . '|' . $type .'"';
 				$cmd = 'php ' . $backgroundCall . ' ' . $params;
 
 				if (substr(php_uname(), 0, 7) == 'Windows') {
@@ -336,11 +339,12 @@ class BulkExportController extends \VuFind\Controller\AbstractBase
 		}
 	}
 
-	protected function callExportService($serviceUrl, $paramString, $totalRecords, $hasAbstract, $encoding, $email)
+	protected function callExportService($serviceUrl, $paramString, $type, $totalRecords, $hasAbstract, $encoding, $email)
 	{
 		$client = $this->createClient($serviceUrl, Request::METHOD_POST);
 		$client->setParameterPost([
 			'queryString' => $paramString,
+			'type' => $type,
 			'download' => 'true',
 			'totalRecords' => $totalRecords,
 			'hasAbstract' => $hasAbstract,
