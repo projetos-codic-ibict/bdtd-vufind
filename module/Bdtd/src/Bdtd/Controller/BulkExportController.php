@@ -137,7 +137,7 @@ class BulkExportController extends \VuFind\Controller\AbstractBase
 
 			if (($totalRecords <= $maxTotal) or ($fileExists == 'true')) {
 				// Immediate file download
-				$response = $this->callExportService($serviceUrl, $totalRecords, $type, $totalRecords, $hasAbstract, $encoding, $email);
+				$response = $this->callExportService($serviceUrl, $paramString, $type, $totalRecords, $hasAbstract, $encoding, $email);
 
 				// After export file is ready, show download window
 				$downloadUrl = $serverUrlHelper($urlHelper('bulkexport-download')) . '?url=' . $response;
