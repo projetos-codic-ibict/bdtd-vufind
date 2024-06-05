@@ -73,11 +73,11 @@ if ($this->params->getOptions()->getListViewOption() !== 'full') {
     <div class="btn-group">
       <button class="btn btn-lg dropdown-toggle" style="width: 150px;border: 2px solid var(--color-hex-primary-base);
     color: var(--color-hex-primary-base); " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        Exportação
+        <?= $this->transEsc('Export') ?>
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <li style="border-bottom: 1px solid #ccc;">
-          <a class="btn" href="<?= $this->url('bulkexport-home') . '?total=' . $recordTotal . '&type=csv'?>" data-lightbox>
+          <a class="btn" href="<?= $this->url('bulkexport-home') . '?total=' . $recordTotal . '&type=csv' ?>" data-lightbox>
             <?= $this->transEsc('Export CSV') ?>
             <i class="fa fa-file-excel-o" aria-hidden="true"></i>
           </a>
