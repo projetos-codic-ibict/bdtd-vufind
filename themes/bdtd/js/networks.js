@@ -28,28 +28,26 @@ async function getNetworks() {
   }
 }
 
-function exportsCSV(allNetworks) {
+function exportsCSV(allInstitutions) {
   const btnExport = document.querySelector(".btn-export-csv");
   btnExport.addEventListener("click", () => {
     let csvContent = "data:text/csv;charset=utf-8,";
 
     // Convert JSON to CSV & Display CSV
-    csvContent = csvContent + ConvertToCSV(allNetworks);
+    csvContent = csvContent + ConvertToCSV(allInstitutions);
     const encodedUri = encodeURI(csvContent);
     window.open(encodedUri);
   });
 }
 
-function ConvertToCSV(allNetworks) {
-  let csv = "Biblioteca,Instituição,Quantidade de itens";
+function ConvertToCSV(allInstitutions) {
+  let csv = "Instituição,Quantidade de itens";
   csv += "\r\n";
-  allNetworks.forEach((item) => {
+  allInstitutions.forEach((item) => {
     let line =
-      `"${item.name || ""}"` +
+      `"${item.value || ""}"` +
       "," +
-      `"${item.institution}"` +
-      "," +
-      item.validSize;
+      item.count;
     line = line.replaceAll("#", "%23");
     csv += line + "\r\n";
   });
@@ -92,5 +90,5 @@ document.addEventListener("DOMContentLoaded", async () => {
       ),
     ]),
   }).render(document.getElementById("networksWrapper"));
-  exportsCSV(allNetworks);
+  exportsCSV(allInstitutions);
 });
