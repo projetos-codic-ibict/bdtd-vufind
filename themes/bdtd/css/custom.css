@@ -481,6 +481,38 @@ li.language a {
   z-index: 9;
 }
 
+.export ul li:first-child {
+  border-bottom: 1px solid #ccc;
+}
+
+.export button{
+  width: 150px;
+  border: 2px solid var(--color-hex-primary-base);
+  color: var(--color-hex-primary-base); 
+  height: 34px;
+}
+
+.export button::after {
+    font-family: FontAwesome;
+    content: "\f107";
+}
+
+.export.open button::after {
+  font-family: FontAwesome;
+  content: "\f106";
+}
+
+.export ul{
+  max-width: 100px;
+}
+
+.export li a{
+  text-align: left;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
 #networks h3 a {
   text-decoration: none;
   margin-left: 5px;
