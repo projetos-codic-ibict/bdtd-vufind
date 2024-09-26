@@ -154,6 +154,11 @@ if (isset($searchDetails) && is_object($searchDetails)) {
               <div id="new_group_template">
               <?php endif; ?>
               <div id="group<?= $group ?>" class="adv-group-form">
+                <div class="adv-help">
+                  <label><?= $this->transEsc("Search Tips") ?>:</label>
+                  <a class="help-link" data-lightbox href="<?= $this->url('help-home') ?>?topic=advsearch&amp;_=<?= time() ?>"><?= $this->transEsc("Help with Advanced Search") ?></a>
+                  <a class="help-link" data-lightbox href="<?= $this->url('help-home') ?>?topic=search&amp;_=<?= time() ?>"><?= $this->transEsc("Help with Search Operators") ?></a>
+                </div>
                 <div class="adv-group-match-form">
                   <label class="search_bool"><?= $this->transEsc("search_match") ?>:&nbsp;</label>
                   <select name="bool<?= $group ?>[]" id="search_bool<?= $group ?>" class="form-control">
@@ -184,10 +189,10 @@ if (isset($searchDetails) && is_object($searchDetails)) {
                       </div>
                       <?php if ($group == 0 && $search == 0) : ?>
                       </div>
-                      <span class="">
+                      <div class="adv-fieds">
                         <i class="fa fa-plus-circle search_place_holder hidden" aria-hidden="true"></i>
                         <a href="#" class="add_search_link hidden" role="button"><?= $this->transEsc("add_search") ?></a>
-                      </span>
+                      </div>
                     <?php endif; ?>
                   <?php endfor; ?>
                 </div>
