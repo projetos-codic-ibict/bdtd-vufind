@@ -62,7 +62,16 @@
               <?= $this->transEsc('Como realizar busca (avançada) na BDTD?'); ?></a>
           </h3>
           <div class="collapse" id="5">
-            <p>A BDTD possui uma lista de dicas para auxiliar na busca avançada, para conhecer mais sobre é só acessar: colocar o link de acesso à lista de dicas.</p>
+            <p>A BDTD possui uma lista de dicas para auxiliar na busca avançada, para conhecer mais sobre é só acessar: 
+             <ul>
+              <li>
+              <a href="https://www.bdtd.ibict.br/vufind/Help/Home?topic=advsearch&_=1729880355" target="_blank" rel="noopener noreferrer">Dicas para buscas</a> 
+              </li>
+              <li>
+              <a href="https://www.bdtd.ibict.br/vufind/Help/Home?topic=search&_=1729880528" target="_blank" rel="noopener noreferrer">Dicas avançadas de pesquisa</a></p>
+              </li>
+             </ul>
+               
             <p>
               Atenção na estratégia de busca utilizada, muitos termos ou filtros podem retornar resultados vazios, o limite é em torno de 2 mil caracteres, busque apoio de um profissional bibliotecário da sua instituição.</p>
           </div>
@@ -165,11 +174,11 @@
             <p>Tipo: Seguindo o Dublin Core (DC), o tipo pode ser preenchido com texto, imagem, software, entre outros. No caso do texto, “recursos que na maioria das vezes são de natureza textual, cujo conteúdo é formado de palavras para leitura, mas pode incluir imagens de texto, tabelas e outros formatos do gênero texto. Exemplos: abstracts, anúncios, correspondências (e-mail, cartas, cartões postais), dicionários, home page, índices, manuais, manuscritos, minutas, monografias, panfletos, poemas, pré-print, proceedings, publicações seriadas (periódicos, jornais), relatórios técnicos”, teses e dissertações <a href="https://www.scielo.br/j/ci/a/tcW3q4WvNBQNTqTyLK8qfFF/#:~:text=Dublin%20Core%20pode%20ser%20definido,a%20descri%C3%A7%C3%A3o%20de%20recursos%20eletr%C3%B4nicos." target="_blank" rel="noopener noreferrer">(Souza; Vendrusculo; Melo, 2000).</a></p>
           </div>
         </div>
+        <br />
+        <p><b>Não encontrou o que procurava?</b></p>
+        <p>Entre em contato com a nossa equipe e faremos o possível para te ajudar.</p>
+        <a class="btn contained-primary fit-content" id="feedbackFaq" data-lightbox href="<?= $this->url('feedback-home') ?>"><?= $this->transEsc("Suporte") ?></a>
       </div>
-      <br />
-      <p><b>Não encontrou o que procurava?</b></p>
-      <p>Entre em contato com a nossa equipe e faremos o possível para te ajudar.</p>
-      <a class="btn contained-primary fit-content" id="feedbackFaq" data-lightbox href="<?= $this->url('feedback-home') ?>"><?= $this->transEsc("Suporte") ?></a>
     </div>
   </div>
 </div>
