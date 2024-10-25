@@ -1,4 +1,15 @@
-@import "variables";
-@import "mixins";
-@import "reset";
-@import "component";
+// @import "variables";
+// @import "mixins";
+// @import "reset";
+// @import "component";
+
+@use 'variables';
+@use 'mixins';
+@use 'reset';
+@use 'component';
+
+
+.info-usuarios, .info-gestores{
+    padding: 20px 0px 20px 0px;
+    color: var(--color-hex-primary-base);
+}
