@@ -1,4 +1,5 @@
 <?php
+// $this->headScript()->appendFile("accessibility.js");
 // Set page title.
 $this->headTitle($this->translate('BDTD'));
 
@@ -16,6 +17,28 @@ $this->layout()->layoutFull = true;
 
 <?php $this->headScript()->appendFile("indicators-home.js"); ?>
 <div class="search-box ">
+
+  <div class="accessibility-menu">
+    <div class="accessibility-options">
+      <h5><strong>Acessibilidade</strong></h5>
+      <div class="acessibility-icon">
+        <img class="icon-acessible" src="themes/bdtd/images/icons/barcode-solid.svg" alt="icone">
+        <button onclick="applyGrayscale()" aria-label>Escala de cinza</button>
+      </div>
+      <div class="acessibility-icon">
+        <img class="icon-acessible" src="themes/bdtd/images/icons/circle-half-stroke-solid.svg" alt="icone">
+        <button onclick="applyHighContrast()" aria-label>Alto contraste</button>
+      </div>
+      <div class="acessibility-icon">
+        <img class="icon-acessible" src="themes/bdtd/images/icons/eye-solid.svg" alt="icone">
+        <button onclick="applyNegativeContrast()" aria-label>Contraste negativo</button>
+      </div>
+    </div>
+    <button class="accessibility-btn" aria-label>
+      <img src="themes/bdtd/images/acessibilidade-icon.png" alt="Acessibilidade">
+    </button>
+  </div>
+
   <div class="container">
 
     <div class="box-title">
