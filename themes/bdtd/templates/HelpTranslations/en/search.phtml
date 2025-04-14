@@ -1,24 +1,13 @@
-<h1>Helpful Searching Tips</h1>
+<?php $this->headTitle('Dicas Avançadas de Pesquisa'); ?>
+<?php $this->layout()->searchbox = false; ?>
+<?php $this->layout()->breadcrumbs .= '<li class="active">' . '' . '</li>'; ?>
 
-<ul class="HelpMenu">
-  <li><a href="#Wildcard Searches">Wildcard Searches</a></li>
-  <li><a href="#Fuzzy Searches">Fuzzy Searches</a></li>
-  <li><a href="#Proximity Searches">Proximity Searches</a></li>
-  <li><a href="#Range Searches">Range Searches</a></li>
-  <li><a href="#Boosting a Term">Boosting a Term</a></li>
-  <li><a href="#Boolean operators">Boolean Operators</a>
-    <ul>
-      <li><a href="#AND">AND</a></li>
-      <li><a href="#+">+</a></li>
-      <li><a href="#OR">OR</a></li>
-      <li><a href="#NOT">NOT</a></li>
-      <li><a href="#-">-</a></li>
-    </ul>
-  </li>
-</ul>
+<div class="fulltext">
+
+<h1 class="text-primary">Helpful Searching Tips</h1>
 
 <dl class="Content">
-  <dt><a name="Wildcard Searches"></a>Wildcard Searches</dt>
+  <dt class="text-secondary">Wildcard Searches</dt>
   <dd>
     <p>To perform a single character wildcard search use the <strong>?</strong> symbol.</p>
     <p>For example, to search for "woman" or "women" you can use the search:</p>
@@ -31,7 +20,7 @@
     <p>Note: You cannot use a * or ? symbol as the first character of a search.</p>
   </dd>
   
-  <dt><a name="Fuzzy Searches"></a>Fuzzy Searches</dt>
+  <dt class="text-secondary">Fuzzy Searches</dt>
   <dd>
     <p>Use the tilde <strong>~</strong> symbol at the end of a <strong>Single</strong> word Term. For example, to search for variant spellings of "Tchaikovsky," use the fuzzy search: </p>
     <pre class="code">Tchaikovsky~</pre>
@@ -40,7 +29,7 @@
     <p>The default that is used if the parameter is not given is 0.5.</p>
   </dd>
   
-  <dt><a name="Proximity Searches"></a>Proximity Searches</dt>
+  <dt class="text-secondary">Proximity Searches</dt>
   <dd>
     <p>
       Use the tilde <strong>~</strong> symbol at the end of a <strong>Multiple</strong> word Term.
@@ -49,7 +38,7 @@
     <pre class="code">"economics Keynes"~10</pre>
   </dd>
   
-  <dt><a name="Range Searches"></a>Range Searches</dt>
+  <dt class="text-secondary">Range Searches</dt>
   <dd>
     <p>
       To perform a range search you can use the <strong>{ }</strong> characters.
@@ -62,7 +51,7 @@
     <pre class="code">[2002 TO 2003]</pre>
   </dd>
   
-  <dt><a name="Boosting a Term"></a>Boosting a Term</dt>
+  <dt class="text-secondary">Boosting a Term</dt>
   <dd>
     <p>
       To apply more value to a term, you can use the <strong>^</strong> character.
@@ -72,7 +61,7 @@
     <p>Which will give more value to the term "Keynes"</p>
   </dd>
   
-  <dt><a name="Boolean operators"></a>Boolean Operators</dt>
+  <dt class="text-secondary">Boolean Operators</dt>
   <dd>
     <p>
       Boolean operators allow terms to be combined with logic operators.
@@ -80,7 +69,7 @@
     </p>
     <p>Note: Boolean operators must be ALL CAPS</p>
     <dl>
-      <dt><a name="AND"></a>AND</dt>
+      <dt class="text-secondary">AND</dt>
       <dd>
         <p>The <strong>AND</strong> operator is the default conjunction operator. This means that if there is no Boolean operator between two terms, the AND operator is used. The AND operator matches records where both terms exist anywhere in the field of a record.</p>
         <p>To search for records that contain "economics" and "Keynes" use the query: </p>
@@ -88,19 +77,19 @@
         <p>or</p>
         <pre class="code">economics AND Keynes</pre>
       </dd>
-      <dt><a name="+"></a>+</dt>
+      <dt class="text-secondary">+</dt>
       <dd>
         <p>The "+" or required operator requires that the term after the "+" symbol exist somewhere in the field of a record.</p>
         <p>To search for records that must contain "economics" and may contain "Keynes" use the query:</p>
         <pre class="code">+economics Keynes</pre>
       </dd>
-      <dt><a name="OR"></a>OR</dt>
+      <dt class="text-secondary">OR</dt>
       <dd>
         <p>The OR operator links two terms and finds a matching record if either of the terms exist in a record.</p>
         <p>To search for documents that contain either "economics Keynes" or just "Keynes" use the query:</p>
         <pre class="code">"economics Keynes" OR Keynes</pre>
       </dd>
-      <dt><a name="NOT"></a>NOT</dt>
+      <dt class="text-secondary">NOT</dt>
       <dd>
         <p>The NOT operator excludes records that contain the term after NOT.</p>
         <p>To search for documents that contain "economics" but not "Keynes" use the query: </p>
@@ -108,7 +97,7 @@
         <p>Note: The NOT operator cannot be used with just one term. For example, the following search will return no results:</p>
         <pre class="code">NOT economics</pre>
       </dd>
-      <dt><a name="-"></a>-</dt>
+      <dt class="text-secondary">-</dt>
       <dd>
         <p>The <strong>-</strong> or prohibit operator excludes documents that contain the term after the "-" symbol.</p>
         <p>To search for documents that contain "economics" but not "Keynes" use the query: </p>
@@ -117,3 +106,4 @@
     </dl>
   </dd>
 </dl>
+</div>
