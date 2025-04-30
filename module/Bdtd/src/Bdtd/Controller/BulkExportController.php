@@ -125,7 +125,7 @@ class BulkExportController extends \VuFind\Controller\AbstractBase
 			$paramString .= '&encoding=' . $encoding;
 
 			// Checks whether an export file generated from this query already exists
-			
+
 			$maxTotal = $exportConfig->Query->maxDownload;
 			$queryLimit = $exportConfig->Query->rows;
 
@@ -149,7 +149,7 @@ class BulkExportController extends \VuFind\Controller\AbstractBase
 				$backgroundCall = $exportConfig->Service->backgroundClass;
 
 				// Call the export service in background
-				$params = '"' . $email . '|' . $serviceUrl . '|' . $paramString . '|' . $totalRecords . '|' .  $hasAbstract . '|' . $encoding . '|' . $type .'"';
+				$params = '"' . $email . '|' . $serviceUrl . '|' . $paramString . '|' . $totalRecords . '|' .  $hasAbstract . '|' . $encoding . '|' . $type . '"';
 				$cmd = 'php ' . $backgroundCall . ' ' . $params;
 
 				if (substr(php_uname(), 0, 7) == 'Windows') {
@@ -218,7 +218,7 @@ class BulkExportController extends \VuFind\Controller\AbstractBase
 		$this->injectResponseWriter($params);
 		$this->injectSpellingParams($params);
 		$this->injectConditionalFilter($params);
-		$this->injectUserCustomParams($params);
+		// $this->injectUserCustomParams($params);
 
 		//Build query params string
 		$builder = $this->getQueryBuilder();
