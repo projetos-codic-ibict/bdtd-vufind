@@ -58,9 +58,16 @@ img {
   /* margin-bottom: 1rem; */
 }
 
-.assinatura img {
+/* .assinatura img {
   max-height: 80px;
+} */
+
+.img-responsive {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 
 footer {
   background-color: #fefefe;
@@ -163,7 +170,7 @@ li.dropdown:hover .network-menu {
   font-size: 1rem;
 }
 
-.nav > li {
+.nav>li {
   margin-right: 32px;
 }
 
@@ -179,7 +186,7 @@ a.text-secondary:hover {
   background-color: rgba(var(--color-rgb-secondary-base), 0.2);
 }
 
-.navbar-nav > li > a {
+.navbar-nav>li>a {
   border-bottom: 2px solid transparent;
   min-height: 60px;
   display: flex;
@@ -191,8 +198,8 @@ a.text-secondary:hover {
   font-size: 1.4rem;
 }
 
-.nav > li > a:hover,
-.nav > li > a:focus {
+.nav>li>a:hover,
+.nav>li>a:focus {
   outline: none;
   text-decoration: none;
   background-color: transparent;
@@ -200,8 +207,8 @@ a.text-secondary:hover {
   color: #1a5544;
 }
 
-li.dropdown > a:hover,
-li.dropdown > a:focus {
+li.dropdown>a:hover,
+li.dropdown>a:focus {
   border-bottom: none;
 }
 
@@ -345,9 +352,9 @@ li.language a {
   font-weight: 500;
 }
 
-.nav .open > a,
-.nav .open > a:hover,
-.nav .open > a:focus {
+.nav .open>a,
+.nav .open>a:hover,
+.nav .open>a:focus {
   background-color: transparent;
 }
 
@@ -524,8 +531,8 @@ li.language a {
   padding: 10px;
 }
 
-.table-striped > tbody > tr:nth-of-type(odd),
-.search-history-table > tbody > tr:nth-of-type(odd) {
+.table-striped>tbody>tr:nth-of-type(odd),
+.search-history-table>tbody>tr:nth-of-type(odd) {
   background-color: #f0f0f0;
 }
 
@@ -606,7 +613,7 @@ li.language a {
   outline: none;
 }
 
-.nav-tabs > li > a {
+.nav-tabs>li>a {
   text-decoration: none;
   border-bottom: 2px solid transparent !important;
   color: #265680;
@@ -714,8 +721,7 @@ li.language a {
 }
 
 .result .format {
-  padding: var(--size-base) calc(var(--size-base) * 4) 6px
-    calc(var(--size-base) * 4);
+  padding: var(--size-base) calc(var(--size-base) * 4) 6px calc(var(--size-base) * 4);
   border: 1px solid var(--color-hex-secondary-base);
   border-radius: calc(var(--size-base) * 100);
   color: var(--color-hex-secondary-base);
@@ -789,24 +795,21 @@ td span.format {
 }
 
 .carousel-control.left {
-  background-image: linear-gradient(
-    to right,
-    rgb(0 0 0 / 22%) 0,
-    rgba(0, 0, 0, 0.0001) 100%
-  );
+  background-image: linear-gradient(to right,
+      rgb(0 0 0 / 22%) 0,
+      rgba(0, 0, 0, 0.0001) 100%);
   background-repeat: repeat-x;
 }
 
 .carousel-control.right {
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.0001) 0,
-    rgba(0, 0, 0, 22%) 100%
-  );
+  background-image: linear-gradient(to right,
+      rgba(0, 0, 0, 0.0001) 0,
+      rgba(0, 0, 0, 22%) 100%);
   background-repeat: repeat-x;
 }
 
 @media screen and (min-width: 768px) {
+
   .carousel-control .glyphicon-chevron-left,
   .carousel-control .icon-prev {
     margin-left: -24px;
@@ -815,6 +818,7 @@ td span.format {
 }
 
 @media screen and (min-width: 768px) {
+
   .carousel-control .glyphicon-chevron-right,
   .carousel-control .icon-next {
     margin-right: -24px;
@@ -854,20 +858,27 @@ td span.format {
   .icon-gov-links:first-child {
     border-top: none;
   }
+
+  .img-responsive {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }
 
-.pagination > li > a,
-.pagination > li > span {
+.pagination>li>a,
+.pagination>li>span {
   color: #1c8567;
   border-radius: 4px;
 }
 
-.pagination > .active > a,
-.pagination > .active > span,
-.pagination > .active > a:hover,
-.pagination > .active > span:hover,
-.pagination > .active > a:focus,
-.pagination > .active > span:focus {
+.pagination>.active>a,
+.pagination>.active>span,
+.pagination>.active>a:hover,
+.pagination>.active>span:hover,
+.pagination>.active>a:focus,
+.pagination>.active>span:focus {
   background-color: #1c8567;
   border-color: #1c8567;
   color: #fff;
@@ -1354,7 +1365,7 @@ input[disabled]:focus {
   border-top: 1px solid #e1e1e1;
 }
 
-.sidebar > h2 {
+.sidebar>h2 {
   font-size: 14px;
   color: #93692b;
   margin-bottom: 8px;
@@ -1512,7 +1523,7 @@ a.js-facet-item {
     right: 8px;
   }
 
-  .navbar-nav > li > a {
+  .navbar-nav>li>a {
     border-bottom: 2px solid transparent;
     min-height: auto;
     display: flex;
