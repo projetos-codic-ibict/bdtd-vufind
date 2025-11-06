@@ -1,4 +1,10 @@
 <?php
+$hiddenIds = $this->hiddenIds ?? [];
+
+if (in_array($this->driver->getUniqueId(), $hiddenIds)) {
+  return; // não renderiza este resultado
+}
+$coverDetails = $this->record($this->driver)->getCoverDetails('result-list', 'medium', $this->recordLink()->getUrl($this->driver));
 $coverDetails = $this->record($this->driver)->getCoverDetails('result-list', 'medium', $this->recordLink()->getUrl($this->driver));
 $cover = $coverDetails['html'];
 $thumbnail = false;

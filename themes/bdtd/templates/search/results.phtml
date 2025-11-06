@@ -92,6 +92,7 @@ if ($this->params->getOptions()->getListViewOption() !== 'full') {
     <?php /* End Listing Options */ ?>
   </div>
 
+
   <div class="<?= $this->layoutClass('mainbody') ?>">
     <?php if ($recordTotal < 1) : ?>
       <p>
@@ -119,6 +120,15 @@ if ($this->params->getOptions()->getListViewOption() !== 'full') {
       <form id="search-cart-form" method="post" name="bulkActionForm" action="<?= $this->url('cart-searchresultsbulk') ?>" data-lightbox data-lightbox-onsubmit="bulkFormHandler">
         <?= $this->context($this)->renderInContext('search/bulk-action-buttons.phtml', ['idPrefix' => '']) ?>
       </form>
+
+      <?php
+      // IDs a serem ocultados
+      $hiddenIds = ['IEC-2_281ad121c7f952303548dc412774bb3c'];
+
+      // Define variável acessível dentro dos subtemplates
+      $this->hiddenIds = $hiddenIds;
+      ?>
+
       <?= $this->render('search/list-' . $this->params->getView() . '.phtml') ?>
       <?= $this->context($this)->renderInContext('search/bulk-action-buttons.phtml', ['idPrefix' => 'bottom_', 'formAttr' => 'search-cart-form']) ?>
 
