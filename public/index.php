@@ -1,4 +1,5 @@
 <?php
+require_once('frameswork-bootloader.php');
 // If the profiler is enabled, set it up now:
 $vufindProfiler = getenv('VUFIND_PROFILER_XHPROF');
 if (!empty($vufindProfiler)) {

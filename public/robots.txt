@@ -18,8 +18,63 @@ Disallow: /vufind/Search/Results/
 Disallow: /vufind/Summon/
 Disallow: /vufind/SummonRecord/
 
-User-agent: PetalBot
-Disallow: /
+
+# Bloqueio de bots de IA conhecidos
 
 User-agent: GPTBot
 Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: Bingbot
+Disallow: /
+
+User-agent: openai
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: Facebookbot
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: Meta-ExternalFetcher
+Disallow: /
+
+User-agent: diffbot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Omgili
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: webzio-extended
+Disallow: /
+
+User-agent: ImagesiftBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
