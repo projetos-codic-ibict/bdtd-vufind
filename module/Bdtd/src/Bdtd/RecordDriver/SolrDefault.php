@@ -319,6 +319,12 @@ class SolrDefault extends \VuFind\RecordDriver\SolrDefault
     return  $this->getPublicationDetailsByPublishers($this->getFieldsValues(['eu_rights_str_mv']));
   }
 
+  public function getDarkID()
+  {
+    // Add essa verificação pq estava dando erro para exibir itens removidos do solr (esses itens vem da api de persistência de ids)
+    return isset($this->fields['dc.identifier.dark.fl_str_mv']) ? $this->fields['dc.identifier.dark.fl_str_mv'][0] : '';
+  }
+
   public function getDepartmentPublishers()
   {
     return $this->getPublicationDetailsByPublishers($this->getFieldsValues(['dc.publisher.department.fl_str_mv']));

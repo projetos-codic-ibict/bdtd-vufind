@@ -182,6 +182,12 @@ id:
   vufind.default: true
   description: Record unique ID (can be used in the record endpoint)
   type: string
+dc.identifier.dark.fl_str_mv:
+  vufind.method: getDarkID
+  description: Internal identifier for dark records
+  type: array
+  items:
+    type: string
 institutions:
   vufind.method: getInstitutions
   description: Institutions the record belongs to
